@@ -1,0 +1,135 @@
+
+.Nav {
+  position: relative;
+  left: 0;
+  top: 0;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+
+  text-align: center;
+  word-wrap: break-word;
+  
+  background-color: transparent;
+  color: white;
+  
+  height: 100vh;
+  width: 300px;
+  z-index: 0;
+} 
+
+
+
+.Nav-button-cover {
+  pointer-events: all;
+  
+  position: inherit;
+  z-index: 25;
+  
+  left: 0%;
+  height: 100vh;
+  width: 300px;
+  
+  background-color: #0a0a0a;
+  border-radius: 0%;
+  
+  transition: all cubic-bezier(0.77, 0, 0.175, 1) 0.5s;
+} .Nav-button-cover.clicked {
+  
+  left: calc((300px - 30px) / -2);
+  background-color: #ddd;
+  transform: scale(0.1, 1);
+}
+
+.Nav-button-ctnr {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  
+  height: 100vh;
+  width: 90%;
+  padding: 15px;
+  
+  position: absolute;
+  left: 30px;
+  
+  pointer-events: none;
+  background-color: white;
+}
+
+.Nav-button {
+  margin: 10px;
+}
+
+
+/* 
+.Nav-content-ctnr {
+  position: relative;
+  pointer-events: none;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 100vh;
+  width: 85vw;
+} .Nav-content-ctnr.move-in {
+  animation: move-in 1s cubic-bezier(0.86, 0, 0.07, 1) 0s 1 normal forwards;
+} .Nav-content-ctnr.move-out {
+  animation: move-out 1s cubic-bezier(0.86, 0, 0.07, 1) 0s 1 normal forwards;
+} */
+
+
+
+/* .Nav-boom-img {
+  width: 100vw;
+  height: 100vh;
+  object-fit: fill;
+  z-index: 2000;
+} */
+
+
+
+
+
+
+/* @keyframes bonk {
+  0% { 
+    transform: rotate(0deg) translate(0, 0);
+    background-color: #282c34;
+  } 10% {
+    background-color: green;
+  } 20% {
+    background-color: red;
+  } 30% {
+    background-color: yellow;
+  } 40% {
+    background-color: pink;
+  } 50% {
+    background-color: cyan;
+  } 60% {
+    background-color: blue;
+  } 70% {
+    background-color: lime;
+  } 80% {
+    background-color: white;
+  } 90% {
+    background-color: orange;
+  } 100% { 
+    transform: rotate(2000deg) translate(50vw, 0vw);
+    background-color: purple;
+  }
+}
+
+@keyframes move-in {
+  from { transform: translate(100vmax, 100vmax) rotate(-90deg) } 
+  to { transform: translate(0vmin, 0vmin) rotate(0deg) }
+}
+
+@keyframes move-out {
+  from { transform: translate(0vmin, 0vmin) rotate(0deg)} 
+  to { transform: translate(100vmax, -100vmax) rotate(90deg) }
+} */
