@@ -3,15 +3,16 @@ export default function Desc() {
     <div className="m-8 items-start justify-center flex flex-col">
       <ul className="m-8">
         <li><b>Ball</b></li>
-        <li>Slide the slider to the right for more balls, and to the left for less.</li>
-        <li>Balls cap at 150</li>
+        <li> - Slide the slider to the right for more balls, and to the left for less.</li>
+        <li> - Balls cap at 150</li>
+        <li> - Apparently they prefer to not be near your cursor</li>
       </ul>
       <ul className="m-8">
         <li><b>Spin</b></li>
-        <li>Just a bunch of spinning lines.</li>
+        <li> - Just a bunch of spinning lines.</li>
       </ul>
       <table cellSpacing={100} className="ml-8 flex flex-col">
-        <caption className="self-start"><b>Table of widgets</b></caption>
+        <caption className="self-start"><b>Ratings</b></caption>
         <tbody>
           <tr>
             <td></td>
@@ -19,12 +20,12 @@ export default function Desc() {
             <th>Ball</th>
           </tr>
           <tr>
-            <th>Lag</th>
+            <th>Lag (more = bad)</th>
             <td>•</td>
             <td>•••</td>
           </tr>
           <tr> 
-            <th>Satisfaction</th>
+            <th>Satisfaction (more = good)</th>
             <td>•</td>
             <td>••</td>
           </tr>
