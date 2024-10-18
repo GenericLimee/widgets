@@ -7,9 +7,9 @@ export default function HelloPage() {
   const dims: { width: number | undefined, height: number | undefined } = useWindowSize();
 
   return (
-    <div className="Hello" style={{ height: "100%", width: "85%"}} key={(dims.width ? 0 : dims.width as number) + (dims.height ? 0 : dims.height as number)}>
-      <p style={{ fontSize: "2rem" }}>Stare at this thing.</p>
-      <Hello width={dims.width as number} height={dims.height as number} />
+    <div className="flex flex-col justify-center items-center w-5/6 h-full" key={(dims.width ? dims.width : 0) + (dims.height ? dims.height : 0)}>
+      <p className="text-4xl">Thing that spins.</p>
+      <Hello width={dims.width ? dims.width : 0} height={dims.height ? dims.height : 0} />
     </div>
   );
 }

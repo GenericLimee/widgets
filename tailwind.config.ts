@@ -12,6 +12,16 @@ const config: Config = {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      keyframes: {
+        spinny: {
+          '0%': { transform: "translate(10%, 0) rotate(-180deg)" },
+          "100%": { transform: "translate(90%, 0) rotate(180deg)" }
+        }
+      },
+      animation: {
+        'spinny': "spinny 3s ease-in-out infinite alternate",
+        'spinny-reverse': "spinny 3s ease-in-out infinite alternate-reverse"
+      }
     },
   },
   plugins: [],

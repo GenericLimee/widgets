@@ -23,13 +23,17 @@ export default function RootLayout({
               label: "Home"
             },
             {
+              href: "/dashboard/desc",
+              label: "Description"
+            },
+            {
               href: "/dashboard/ball",
               label: "Ball"
             },
             {
               href: "/dashboard/hello",
               label: "Spin"
-            }
+            },
           ]}
         />
         {children}

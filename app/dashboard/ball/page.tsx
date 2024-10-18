@@ -1,20 +1,25 @@
 'use client'
 import RBall from '@/components/RBall';
-// import { useState } from "react";
+import { ChangeEvent, useState } from "react";
 
-// const defalutBalls = 100;
-const num = 100;
+const defalutBalls = 100;
 
 export default function Page() {
-  // const [num, setNum] = useState<number>(defalutBalls);
+  const [num, setNum] = useState<number>(defalutBalls);
 
   const arr = [];
-  for (let i = 0; i < num; i++) arr.push(i * num);
+  for (let i = 0.1; i < num; i++) arr.push(i * num);
 
   return (
     <>
-      <div className="Ball-page">
-        
+      <div className="Ball-page flex self-stretch flex-auto items-start justify-center">
+        <input 
+          className="m-20"
+          type="range" 
+          min={1} 
+          max={150} 
+          onChange={(e: ChangeEvent<HTMLInputElement>) => { setNum(Number(e.target.value)) }}
+        />
         {arr.map(key => 
           <RBall key={key} />
         )}

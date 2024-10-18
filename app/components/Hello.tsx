@@ -1,6 +1,5 @@
 'use client'
 
-import "@/css/Hello.css";
 import NoSSR from "./NoSSR";
 
 export default function Hello({ width, height }: { width: number, height: number }) {
@@ -11,17 +10,13 @@ export default function Hello({ width, height }: { width: number, height: number
 
   return (
     <NoSSR>
-      <div className="flex-row">
+      <div className="flex flex-row">
         {arr.map(i => 
-          <div className="flex-col" key={i}>
+          <div className="flex flex-col mt-16" key={i}>
             {arr2.map(j => 
-              <hr 
+              <hr
                 key={j}
-                className={(Math.floor(Math.random() * 2)) ? "spinny" : "spinny-reverse"}
-                style={{
-                  width: '70px',
-                  margin: '5px'
-                }}
+                className="animate-spinny odd:animate-spinny-reverse w-16 m-1.5"
               />
             )}
           </div>
