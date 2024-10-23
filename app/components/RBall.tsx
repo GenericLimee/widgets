@@ -60,7 +60,6 @@ const getRandomPos = (currentPos: Position, windowSize: Size): Position => {
   return [0, 0]; // fallback
 };
 
-
 // reducer
 const init = (): State => ({
   ae: true,
@@ -137,7 +136,7 @@ export default function RBall() {
     <NoSSR>
       <div
         className={clsx(
-          "h-[32rem] w-[32rem] flex justify-center items-center text-3xl absolute br-full",
+          "h-[32rem] w-[32rem] flex justify-center items-center text-3xl absolute br-full transform-gpu",
           state.windowDims ? (state.ae ? "flex pointer-events-auto" : "pointer-events-none") : "hidden pointer-events-none",
         )}
         onMouseOver={() => { if (state.ae) dispatch({ type: "move" }) }}
@@ -149,3 +148,12 @@ export default function RBall() {
     </NoSSR>
   );
 }
+
+// go brr thing
+
+// const getAnim = (pos: PositionTime): Object => { // gets a big animation obj that would be way too hard to write manually
+//   let obj: any = {"0%": pos[0]}; // delare
+//   for (let i = 2; i < 99; i += 2) { obj = { ...obj, [i +'px']: posToStyle(getRandomPos(pos[0])) } } // obj will now be obj but with (index)percent: random position
+//   obj["100%"] = posToStyle(pos[1]); // makes sure that on last tp it tps/moves to current position (known by react, not just the animation)
+//   return obj;
+// }

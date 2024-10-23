@@ -9,9 +9,9 @@
 
 'use client'
 
-import '@/css/Button.css';
 import { ReactNode, CSSProperties } from 'react';
 import Link from 'next/link';
+
 export default function Button( props: {
   clickDuration?: number,
   colorTD?: number,
@@ -37,7 +37,15 @@ export default function Button( props: {
 
   return (
     <Link
-      className={className + " Button w-5/6 text-2xl text-black bg-[#ddd] shadow-none hover:shadow-xl"} 
+      className={
+        className + 
+          " \
+            w-5/6 text-2xl text-black bg-[#ddd] shadow-none pointer-events-auto font-default p-2.5 z-10 border-none \
+            hover:-translate-y-1.5 hover:shadow-xl \
+            active:shadow-none active:translate-x-0 active:translate-y-0 \
+            disabled:shadow-none disabled:bg-gray-500 disabled:text-gray-700 \
+          "
+        } 
       style={{
         ...style, // stuff below are props being applied
         transition: (` 
