@@ -11,6 +11,9 @@ const config: Config = {
       'default': [ '"-apple-system"', 'BlinkMacSystemFont', '"Segoe UI"', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', '"Fira Sans"', '"Droid Sans"', '"Helvetica Neue"', '"sans-serif"' ],
     },
     extend: {
+      transitionTimingFunction: {
+        'satis': 'cubic-bezier(0.77, 0, 0.175, 1)',
+      },
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",

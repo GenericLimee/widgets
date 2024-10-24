@@ -4,7 +4,7 @@ export default function Desc() {
       <ul className="m-8">
         <li><b>Ball</b></li>
         <li> - Slide the slider to the right for more balls, and to the left for less.</li>
-        <li> - Balls cap at 500</li>
+        <li> - Balls cap at 250</li>
         <li> - Apparently they prefer to not be near your cursor</li>
       </ul>
       <ul className="m-8">

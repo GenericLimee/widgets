@@ -17,7 +17,7 @@ export default function Page() {
           className="m-20"
           type="range" 
           min={1} 
-          max={500} 
+          max={250} 
           onChange={(e: ChangeEvent<HTMLInputElement>) => { setNum(Number(e.target.value)) }}
         />
         {arr.map(key => 
