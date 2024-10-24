@@ -6,6 +6,7 @@ First, run the build:
 
 ```bash
 bun install
+bun run build
 bun start
 ```
 
