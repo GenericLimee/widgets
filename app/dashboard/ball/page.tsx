@@ -8,14 +8,14 @@ export default function Page() {
   const [num, setNum] = useState<number>(defalutBalls);
 
   const arr = [];
-  for (let i = 0.1; i < num; i++) arr.push(i * num);
+  for (let i = 1; i < num; i++) arr.push(i * num);
 
   return (
     <>
       <div className="Ball-page flex self-stretch flex-auto items-start justify-center">
         <input 
           className="m-20"
-          type="range" 
+          type="range"
           min={1} 
           max={250} 
           onChange={(e: ChangeEvent<HTMLInputElement>) => { setNum(Number(e.target.value)) }}
