@@ -7,7 +7,7 @@
 
 
 //imports
-import { CSSProperties, useEffect, useReducer } from 'react';
+import { CSSProperties, useLayoutEffect, useReducer } from 'react';
 import clsx from 'clsx';
 import { keyframes } from "glamor";
 import NoSSR from './NoSSR';
@@ -113,7 +113,7 @@ const reducer = (state: State, action: Action): State => {
 export default function RBall() {
   const [state, dispatch] = useReducer(reducer, {}, init);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     function handleResize(initThing?: boolean): void { 
       dispatch({ type: 'windowLoaded', windowADims: { width: window.innerWidth, height: window.innerHeight } });
       if (!initThing) dispatch({ type: "move" }); // if called by event listener, move automatically
@@ -129,7 +129,7 @@ export default function RBall() {
 
     window.addEventListener("resize", handleEvent);
 
-    return () => { window.removeEventListener("resize", handleEvent); console.log('oof') }; // cleanup callback
+    return () => { window.removeEventListener("resize", handleEvent) }; // cleanup callback
   }, []); // Empty array ensures that effect is only run on mount
 
   return (

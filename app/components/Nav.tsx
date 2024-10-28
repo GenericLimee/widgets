@@ -16,13 +16,12 @@ export default function Nav({ links }: { links: {href: string, label: string}[] 
         onMouseEnter={() => { setClicked(true) }}
       >
         <div 
-          className={clsx(
-            "pointer-events-auto absolute z-20 left-0 h-screen w-[300px] transition-all ease-satis duration-500",
-            clicked ? "left-[-135px] bg-[#ddd] scale-x-[0.1] scale-y-[1]" : "bg-[#0a0a0a] scale-100"
+          className={clsx( // button cover
+            "pointer-events-auto absolute z-20 h-screen w-full transition-all ease-satis duration-500",
+            clicked ? "left-[-130px] bg-[#ddd] scale-x-[0.1] scale-y-100" : "bg-[#0a0a0a] scale-100 left-0"
           )}
-          onClick={() => { setClicked(thing => !thing) }}
         />
-        <div className="flex justify-start items-center flex-col h-screen w-[90%] p-4 absolute left-[30px] pointer-events-none bg-white">
+        <div className="flex justify-start items-center flex-col h-screen w-[90%] p-4 absolute pointer-events-none bg-white">
           {links.map((link, i) => { // maps the pages' respective buttons (except the boom and error pages of course)
             return (
               <Button 
