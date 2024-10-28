@@ -1,5 +1,5 @@
 'use client'
-import RBall from '@/components/RBall';
+import RBall from '@/components/Ball';
 import { ChangeEvent, useState } from "react";
 
 const defalutBalls = 100;
