@@ -11,14 +11,14 @@ export default function Nav({ links }: { links: {href: string, label: string}[] 
   return (
     <>
       <div 
-        className="relative left-0 top-0 flex flex-col items-end justify-center text-center text-wrap bg-transparent text-white h-screen w-[300px] z-0" 
+        className="relative left-0 top-0 flex flex-col items-end justify-center text-center text-wrap bg-transparent text-white h-screen w-[300px] z-0 flex-shrink-0" 
         onMouseLeave={() => { setClicked(false) }} 
         onMouseEnter={() => { setClicked(true) }}
       >
         <div 
           className={clsx( // button cover
             "pointer-events-auto absolute z-20 h-screen w-full transition-all ease-satis duration-500",
-            clicked ? "left-[-130px] bg-[#ddd] scale-x-[0.1] scale-y-100" : "bg-[#0a0a0a] scale-100 left-0"
+            clicked ? "left-[-130px] bg-[#ddd] scale-x-[0.115] scale-y-100" : "bg-[#0a0a0a] scale-100 left-0"
           )}
         />
         <div className="flex justify-start items-center flex-col h-screen w-[90%] p-4 absolute pointer-events-none bg-white">
