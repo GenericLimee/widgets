@@ -24,7 +24,7 @@ export default function Desc() {
             <th>Ball</th>
           </tr>
           <tr>
-            <th>Lag (more = good)</th>
+            <th>Lag Rating (more = good)</th>
             <td>•••</td>
             <td>•</td>
           </tr>
@@ -34,7 +34,7 @@ export default function Desc() {
             <td>•••</td>
           </tr>
           <tr>
-            <th>Chaos (more = idk)</th>
+            <th>Chaos Rating (more = idk)</th>
             <td>•</td>
             <td>••••</td>
           </tr>
