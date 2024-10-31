@@ -7,7 +7,7 @@
 
 
 //imports
-import { CSSProperties, useLayoutEffect, useReducer } from 'react';
+import { CSSProperties, useEffect, useReducer } from 'react';
 import clsx from 'clsx';
 import { keyframes } from "glamor";
 import NoSSR from './NoSSR';
@@ -113,7 +113,7 @@ const reducer = (state: State, action: Action): State => {
 export default function RBall() {
   const [state, dispatch] = useReducer(reducer, {}, init);
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     function handleResize(initThing?: boolean): void { 
       dispatch({ type: 'windowLoaded', windowADims: { width: window.innerWidth, height: window.innerHeight } });
       if (!initThing) dispatch({ type: "move" }); // if called by event listener, move automatically
