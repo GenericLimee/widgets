@@ -136,7 +136,7 @@ export default function RBall() {
     <NoSSR>
       <div
         className={clsx(
-          "h-[32rem] w-[32rem] flex justify-center items-center text-3xl absolute br-full transform-gpu",
+          "h-[32rem] w-[32rem] flex justify-center items-center text-3xl absolute br-full transform-gpu origin-center",
           state.windowDims ? (state.ae ? "flex pointer-events-auto" : "pointer-events-none") : "hidden pointer-events-none",
         )}
         onMouseOver={() => { if (state.ae) dispatch({ type: "move" }) }}
