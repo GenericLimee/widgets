@@ -14,7 +14,7 @@ import NoSSR from './NoSSR';
 
 
 // values
-const initialPos: Position = [500, 500]; // starting position
+const initialPos: Position = [0, 0]; // starting position
 const colorRange: { range: Range } = { range: [50, 150] }; // range of color, like rgb(a-b, a-b, a-b)
 const distance: number = 40; // distance that the ball with travel away from mouse in average vw & vh
 
@@ -51,8 +51,8 @@ const getRandomPos = (currentPos: Position, windowSize: Size): Position => {
     }
 
     const randPos: Position = windowSize ? [
-      Math.floor(getRandom([windowSize.width * 0.15, windowSize.width * 0.7])), // random width
-      Math.floor(getRandom([windowSize.height * -0.1, windowSize.height * 0.6])) // random height
+      Math.floor(getRandom([windowSize.width * .1, windowSize.width * 0.9 - 256])), // random width
+      Math.floor(getRandom([windowSize.height * 0.1 - 256, windowSize.height * 0.6])) // random height
     ] : [245243, 5324534];
     if (Math.sqrt(Math.pow(randPos[0] - currentPos[0], 2) + Math.pow(randPos[1] - currentPos[1], 2)) > pxDistance) { return randPos }
     // if √{   [  ( randPos[0] - currentPos[0] )^2 + ( randPos[1] - currentPos[1] )^2  ]  >  pxDistance   }      unreadable fr
@@ -136,15 +136,13 @@ export default function RBall() {
     <NoSSR>
       <div
         className={clsx(
-          "h-[32rem] w-[32rem] flex justify-center items-center text-3xl absolute br-full transform-gpu origin-center",
+          "h-[32rem] w-[32rem] flex justify-center items-center absolute br-full transform-gpu origin-center",
           state.windowDims ? (state.ae ? "flex pointer-events-auto" : "pointer-events-none") : "hidden pointer-events-none",
         )}
         onMouseOver={() => { if (state.ae) dispatch({ type: "move" }) }}
         onAnimationEnd={() => dispatch({ type: "animationEnded" })}
         style={state.style}
-      >
-        ball
-      </div>
+      />
     </NoSSR>
   );
 }

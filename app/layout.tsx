@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import "./css/globals.css";
-import Nav from "./components/Nav";
+import "@/css/globals.css";
+import Nav from "@/components/Nav";
 
 export const metadata: Metadata = {
   title: "eeeeee eeee eee",
@@ -16,26 +16,6 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="overflow-hidden">
-        <Nav
-          links={[
-            {
-              href: "/dashboard",
-              label: "Home"
-            },
-            {
-              href: "/dashboard/desc",
-              label: "Description"
-            },
-            {
-              href: "/dashboard/ball",
-              label: "Ball"
-            },
-            {
-              href: "/dashboard/hello",
-              label: "Spin"
-            },
-          ]}
-        />
         {children}
       </body>
     </html>

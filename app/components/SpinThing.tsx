@@ -2,7 +2,7 @@
 
 import NoSSR from "./NoSSR";
 
-export default function Hello({ width, height }: { width: number, height: number }) {
+export default function SpinThing({ width, height }: { width: number, height: number }) {
   const arr: never[] = [];
   const arr2: never[] = [];
   for (let i = 0; i < (width / 128); i++) arr.push(i as never);

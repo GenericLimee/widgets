@@ -5,7 +5,7 @@ import Button from './Button';
 
 import clsx from 'clsx';
 
-export default function Nav({ links }: { links: {href: string, label: string}[] }) {
+export default function Nav({ links, buttonCN }: { links: {href: string, label: string}[], buttonCN: string }) {
   const [clicked, setClicked] = useState(false); // button cover clicked or not
 
   return (
@@ -25,7 +25,7 @@ export default function Nav({ links }: { links: {href: string, label: string}[] 
           {links.map((link, i) => { // maps the pages' respective buttons (except the boom and error pages of course)
             return (
               <Button 
-                className="m-2.5"
+                className={buttonCN}
                 href={link.href}
                 key={link.label + i}
               >

@@ -19,17 +19,15 @@ export default function Button( props: {
   } = props;
   const [clickState, setClickState] = useState<clickStatePlus>({ pending: null, current: "none" });
   const setClickStatePlus = (thing: clickState) => {
-    // setTimeout(() => { setClickState(cs => ({ pending: null, current: cs.current })) }, 200);
     setClickState(cs => cs.pending 
       ? { pending: thing, current: cs.current }
       : { pending: "existing", current: thing }
     );
   }
-  console.log(clickState);
 
   return (
     <Link className={clsx( className + " \
-      transition-all duration-200 w-5/6 text-2xl text-black bg-[#ddd] pointer-events-auto font-default p-2.5 z-10 disabled:shadow-none disabled:bg-gray-500 disabled:text-gray-700",
+      transition-all duration-200 text-2xl text-black bg-[#ddd] pointer-events-auto font-default p-2.5 z-10 disabled:shadow-none disabled:bg-gray-500 disabled:text-gray-700",
       clickState.current === "none" || clickState.current === "down" 
         ? "shadow-none translate-x-0 translate-y-0" 
         : clickState.current === "hover" && "-translate-y-1.5 shadow-lg"

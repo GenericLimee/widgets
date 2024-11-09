@@ -1,6 +1,9 @@
-'use client'
-
-import { redirect } from "next/navigation";
+import Button from "@/components/Button";
 export default function Page() {
-  redirect("/dashboard");
+  return (
+    <div className="grid gap-4 w-full h-full auto-cols-min auto-rows-min p-5">
+      <Button href="/widgets" className="rounded-3xl text-center">Widgets</Button>
+      <Button href="/widgets" className="rounded-3xl text-center">Widgets</Button>
+    </div>
+  );
 }
