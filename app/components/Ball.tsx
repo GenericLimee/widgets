@@ -26,9 +26,9 @@ type Position = [number, number];
 type Size = { width: number, height: number }
 type PositionTime = [Position, Position]; // [prevPosition, currentPosition]
 type Action =
-  | { type: "move", windowADims?: Size } // window action dimensions (to avoid confusion)
+  | { type: "move" } // window action dimensions (to avoid confusion)
   | { type: "animationEnded" }
-  | { type: "mounted/resized", windowADims: Size };
+  | { type: "mounted/resized", windowADims: Size, mount?: boolean };
 type State = {
   poss: PositionTime, // [current pos, upcoming pos] (positions)
   style: CSSProperties,
@@ -99,6 +99,7 @@ const reducer = (state: State, action: Action): State => {
       return {
         ...state,
         windowDims: action.windowADims,
+        poss: action.mount ? state.poss : [state.poss[1], getRandomPos(state.poss[1], action.windowADims)]
       };
     default:
       return { // fallback
@@ -121,8 +122,8 @@ export default function RBall({ windowDims }: { windowDims: Size }) {
     style: {} // add default regular styles here, and add hard to compute styles in init
   }, init);
   useEffect(() => { 
-    dispatch({ type: 'mounted/resized', windowADims: windowDims });
-    if (windowDims !== state.windowDims) { dispatch({ type: 'move', windowADims: windowDims }) }
+    dispatch({ type: 'mounted/resized', windowADims: windowDims, mount: windowDims.width === state.windowDims.width });
+    if (windowDims !== state.windowDims) { dispatch({ type: 'move' }) }
   }, [windowDims]);
 
   return (

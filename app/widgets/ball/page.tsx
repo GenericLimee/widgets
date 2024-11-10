@@ -8,7 +8,7 @@ const defalutBalls = 10;
 
 export default function Page() {
   const [num, setNum] = useState<number>(defalutBalls);
-  const windowDims: { width: number, height: number } | undefined = useWindowSize();
+  const windowDims: { width: number, height: number } | undefined = useWindowSize(100);
 
   const arr = [];
   for (let i = 0; i < num; i++) arr.push(i * num);
@@ -21,7 +21,7 @@ export default function Page() {
 
   return (
     <>
-      <div className="Ball-page flex self-stretch flex-auto items-start justify-center">
+      <div className="flex self-stretch flex-auto items-start justify-center">
         <input 
           className="m-5"
           type="range"

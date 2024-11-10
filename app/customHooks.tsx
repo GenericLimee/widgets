@@ -1,33 +1,26 @@
 import { useEffect, useState } from 'react';
 
-export function useWindowSize() {
-  // Initialize state with undefined width/height so server and client renders match
-  // Learn more here: https://joshwcomeau.com/react/the-perils-of-rehydration/
+export function useWindowSize(delay?: number) { // delay in ms
   const [windowSize, setWindowSize] = useState<{
     width: number,
     height: number
   } | undefined>(undefined);
 
   useEffect(() => {
-    // only execute all the code below in client side
-    // Handler to call on window resize
+    let timeout: NodeJS.Timeout;
     function handleResize() {
-      // Set window width/height to state
-      setWindowSize({
+      clearTimeout(timeout);
+      timeout = setTimeout(() => { setWindowSize({
         width: window.innerWidth,
         height: window.innerHeight
-      });
+      }) }, delay); 
     }
     
-    // Add event listener
     window.addEventListener("resize", handleResize);
-    
-    // Call handler right away so state gets updated with initial window size
     handleResize();
     
-    // Remove event listener on cleanup
-    return () => window.removeEventListener("resize", handleResize);
-  }, []); // Empty array ensures that effect is only run on mount
+    return () => { window.removeEventListener("resize", handleResize); clearTimeout(timeout) };
+  }, []);
   return windowSize;
 }
 
