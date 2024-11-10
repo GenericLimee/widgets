@@ -23,7 +23,7 @@ export default function Layout({ children }: { children: ReactNode }) {
             label: "Ball"
           },
           {
-            href: "/widgets/hello",
+            href: "/widgets/spin-thing",
             label: "Spin"
           },
         ]}
