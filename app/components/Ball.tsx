@@ -38,7 +38,7 @@ type State = {
 
 
 // utilities
-const posToStyle = (pos: Position) => ({ left: pos[0] + 'px', bottom: pos[1] + 'px' });
+const posToStyle = (pos: Position): CSSProperties => ({ left: pos[0] + 'px', bottom: pos[1] + 'px' });
 const getCenterPos = (windowSize: Size): Position => [(windowSize.width - ballHitboxSize) / 2, (windowSize.height - ballHitboxSize) / 2];
 const getRandom = (range: Range): number => { while (true) { if (Math.random() > .5) { return (range[1] - range[0]) * Math.random() + range[0] } } }
 const getRandomPos = (currentPos: Position, windowSize: Size): Position => {
@@ -124,7 +124,7 @@ export default function RBall({ windowDims }: { windowDims: Size }) {
   useEffect(() => { 
     dispatch({ type: 'mounted/resized', windowADims: windowDims, mount: windowDims.width === state.windowDims.width });
     if (windowDims !== state.windowDims) { dispatch({ type: 'move' }) }
-  }, [windowDims]);
+  }, [windowDims, state.windowDims]);
 
   return (
     <NoSSR>

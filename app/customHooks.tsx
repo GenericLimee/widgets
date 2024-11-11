@@ -20,7 +20,7 @@ export function useWindowSize(delay?: number) { // delay in ms
     handleResize();
     
     return () => { window.removeEventListener("resize", handleResize); clearTimeout(timeout) };
-  }, []);
+  }, [delay]);
   return windowSize;
 }
 

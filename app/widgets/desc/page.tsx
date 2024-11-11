@@ -1,7 +1,7 @@
 export default function Desc() {
   return (
     <div className="m-8 items-start justify-center flex flex-col">
-      <h2 className="ml-8 mb-2 text-xl"><b>Purpose</b></h2>
+      <h2 className="ml-8 mb-2 text-xl"><b>Why?</b></h2>
       <p className="ml-12 text-xl">
         The purpose of this website is to attempt to bring satisfaction to the viewer. <br/>
         As to why I am interested in this, I like asmr in general, so I decided to make my own.
@@ -11,6 +11,7 @@ export default function Desc() {
         <li> - Slide the slider to the right for more ball, and to the left for less.</li>
         <li> - Ball quantity cap at 100</li>
         <li> - Apparently they prefer to not be near your cursor</li>
+        <li> - Idk why but the page pretty much falls apart when near 100 ball.</li>
       </ul>
       <ul className="m-8">
         <li><b>Spin</b></li>
