@@ -1,6 +1,8 @@
 'use client'
 
 /*
+  Recently finished:
+   - use transform translate instead of left/bottom css declaration which greatly improves ball movement performance
   Curretnly working on:
    - NA
 */
@@ -13,22 +15,22 @@ import NoSSR from './NoSSR';
 
 
 // values
-const colorRange: Range = [50, 150] ; // range of color, like rgb(a-b, a-b, a-b)
+const colorRange: Range = [50, 150] ; // range of color, like rgb(a-b, c-d, e-f)
 const distance: number = 40; // distance that the ball with travel away from mouse in average vw & vh
 const ballHitboxSize: number = 512; // in px
 const visibleBallPercent: number = 10;
 
 
 // types
-type Range = [number, number]; // these aliases are just here for clarity
-type Position = [number, number];
+type Range = [number, number];
+type Position = Range; // this alias is just here for clarity
 type Size = { width: number, height: number }
 type Action =
   | { type: "move" } // window action dimensions (to avoid confusion)
   | { type: "transitionEnded" }
   | { type: "mounted/resized", windowADims: Size, mount?: boolean };
 type State = {
-  pos: Position, // [current pos, upcoming pos] (positions)
+  pos: Position, // upcomeing position
   style: CSSProperties,
   ae: boolean, // animation ended?
   windowDims: Size
@@ -58,6 +60,7 @@ const getRandomPos = (currentPos: Position, windowSize: Size): Position => {
     // if √{   [  ( randPos[0] - currentPos[0] )^2 + ( randPos[1] - currentPos[1] )^2  ]  >  pxDistance   }      unreadable fr
   }
 };
+
 
 // reducer
 const init = (state: State): State => ({
@@ -116,7 +119,7 @@ export default function RBall({ windowDims }: { windowDims: Size }) {
     ae: true,
     pos: [0, 0],
     windowDims: windowDims,
-    style: {} // add default regular styles here, and add hard to compute styles in init
+    style: {} // type script get mad if this not here whyyy
   }, init);
   useEffect(() => { 
     dispatch({ type: 'mounted/resized', windowADims: windowDims, mount: windowDims.width === state.windowDims.width });
