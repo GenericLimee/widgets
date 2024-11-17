@@ -9,7 +9,6 @@
 //imports
 import { CSSProperties, useEffect, useReducer } from 'react';
 import clsx from 'clsx';
-import { keyframes } from "glamor";
 import NoSSR from './NoSSR';
 
 
@@ -24,13 +23,12 @@ const visibleBallPercent: number = 10;
 type Range = [number, number]; // these aliases are just here for clarity
 type Position = [number, number];
 type Size = { width: number, height: number }
-type PositionTime = [Position, Position]; // [prevPosition, currentPosition]
 type Action =
   | { type: "move" } // window action dimensions (to avoid confusion)
-  | { type: "animationEnded" }
+  | { type: "transitionEnded" }
   | { type: "mounted/resized", windowADims: Size, mount?: boolean };
 type State = {
-  poss: PositionTime, // [current pos, upcoming pos] (positions)
+  pos: Position, // [current pos, upcoming pos] (positions)
   style: CSSProperties,
   ae: boolean, // animation ended?
   windowDims: Size
@@ -38,18 +36,18 @@ type State = {
 
 
 // utilities
-const posToStyle = (pos: Position): CSSProperties => ({ left: pos[0] + 'px', bottom: pos[1] + 'px' });
+const posToTransformStyle = (pos: Position): CSSProperties => ({ transform: `translate(${pos[0]}px, ${-pos[1]}px)` });
 const getCenterPos = (windowSize: Size): Position => [(windowSize.width - ballHitboxSize) / 2, (windowSize.height - ballHitboxSize) / 2];
 const getRandom = (range: Range): number => { while (true) { if (Math.random() > .5) { return (range[1] - range[0]) * Math.random() + range[0] } } }
 const getRandomPos = (currentPos: Position, windowSize: Size): Position => {
   const pxDistance: number = distance * ((windowSize.width + windowSize.height) / 200);
-  let thingThatPreventsInfiniteLoop: number = 0;
+  let thingThatPreventsInfiniteLoop: number = 0; 
 
   while (true) {
     thingThatPreventsInfiniteLoop++; // crash/pcExplosion guard
-    if (thingThatPreventsInfiniteLoop > 1000) {
-      console.warn("While loop would've blew up");
-      break;
+    if (thingThatPreventsInfiniteLoop > 1000) { 
+      console.warn("While loop would've blew up... or you happen to have achieved a 1 out of 2^1000 chance. Ye idk."); 
+      return [0, 0]; // fallback
     }
 
     const randPos: Position = [
@@ -59,18 +57,20 @@ const getRandomPos = (currentPos: Position, windowSize: Size): Position => {
     if (Math.sqrt(Math.pow(randPos[0] - currentPos[0], 2) + Math.pow(randPos[1] - currentPos[1], 2)) > pxDistance) { return randPos }
     // if √{   [  ( randPos[0] - currentPos[0] )^2 + ( randPos[1] - currentPos[1] )^2  ]  >  pxDistance   }      unreadable fr
   }
-  return [0, 0]; // fallback
 };
 
 // reducer
 const init = (state: State): State => ({
   ...state,
-  poss: [getCenterPos(state.windowDims), getRandomPos(getCenterPos(state.windowDims), state.windowDims)],
+  pos: getRandomPos(getCenterPos(state.windowDims), state.windowDims),
   style: {
     ...state.style,
-    ...posToStyle(getCenterPos(state.windowDims)),
+    ...posToTransformStyle(getCenterPos(state.windowDims)),
+    left: 0,
+    bottom: 0,
     width: ballHitboxSize,
     height: ballHitboxSize,
+    transition: "500ms cubic-bezier(0.55, 0.055, 0.675, 1) transform",
     background: `radial-gradient(rgb(${getRandom(colorRange)}, ${getRandom(colorRange)}, ${getRandom(colorRange)}) ${visibleBallPercent}%, transparent ${visibleBallPercent}%)`,
   }
 });
@@ -81,16 +81,13 @@ const reducer = (state: State, action: Action): State => {
       return {
         ...state,
         ae: false, // lets component know if animation in progress
-        poss: [state.poss[1], getRandomPos(state.poss[1], state.windowDims)], // new becomes now and destiny becomes new
+        pos: getRandomPos(state.pos, state.windowDims), // makes new planned pos
         style: {
           ...state.style,
-          animation: keyframes('move', {
-            "0%": posToStyle(state.poss[0]),
-            "100%": posToStyle(state.poss[1])
-          }) + " 0.5s cubic-bezier(0.55, 0.055, 0.675, 1) 1 forwards"
+          ...posToTransformStyle(state.pos),
         }
       };
-    case "animationEnded":
+    case "transitionEnded":
       return {
         ...state,
         ae: true,
@@ -99,7 +96,7 @@ const reducer = (state: State, action: Action): State => {
       return {
         ...state,
         windowDims: action.windowADims,
-        poss: action.mount ? state.poss : [state.poss[1], getRandomPos(state.poss[1], action.windowADims)]
+        pos: action.mount ? state.pos : getRandomPos(state.pos, action.windowADims)
       };
     default:
       return { // fallback
@@ -117,7 +114,7 @@ const reducer = (state: State, action: Action): State => {
 export default function RBall({ windowDims }: { windowDims: Size }) {
   const [state, dispatch] = useReducer(reducer, {
     ae: true,
-    poss: [[0, 0], [0, 0]],
+    pos: [0, 0],
     windowDims: windowDims,
     style: {} // add default regular styles here, and add hard to compute styles in init
   }, init);
@@ -130,11 +127,11 @@ export default function RBall({ windowDims }: { windowDims: Size }) {
     <NoSSR>
       <div
         className={clsx(
-          "absolute br-full transform-gpu origin-center",
+          "absolute br-full origin-center transform-gpu",
           state.ae ? "flex pointer-events-auto" : "pointer-events-none",
         )}
         onMouseOver={() => { if (state.ae) dispatch({ type: "move" }) }}
-        onAnimationEnd={() => dispatch({ type: "animationEnded" })}
+        onTransitionEnd={() => dispatch({ type: "transitionEnded" })}
         style={state.style}
       />
     </NoSSR>

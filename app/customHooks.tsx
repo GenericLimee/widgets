@@ -1,4 +1,5 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
+import { useRouter, usePathname, useSearchParams, ReadonlyURLSearchParams } from 'next/navigation';
 
 export function useWindowSize(delay?: number) { // delay in ms
   const [windowSize, setWindowSize] = useState<{
@@ -24,3 +25,16 @@ export function useWindowSize(delay?: number) { // delay in ms
   return windowSize;
 }
 
+export function useURLSearchParams(): [ReadonlyURLSearchParams, (name: string, value: string) => void] {
+  const router = useRouter();
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
+
+  const createQueryString = useCallback((name: string, value: string) => {
+    const params = new URLSearchParams(searchParams.toString())
+    params.set(name, value)
+    return params.toString()
+  }, [searchParams]);
+
+  return [searchParams, (name: string, value: string) => router.push(pathname + '?' + createQueryString(name, value))];
+}

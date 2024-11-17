@@ -1,5 +1,6 @@
-import { ReactNode } from 'react';
+import { ReactNode, Suspense } from 'react';
 import Nav from '@/components/Nav';
+
 export default function Layout({ children }: { children: ReactNode }) {
   return (
     <>
@@ -19,7 +20,7 @@ export default function Layout({ children }: { children: ReactNode }) {
             label: "Description"
           },
           {
-            href: "/widgets/ball",
+            href: "/widgets/ball?num=10",
             label: "Ball"
           },
           {
@@ -28,7 +29,9 @@ export default function Layout({ children }: { children: ReactNode }) {
           },
         ]}
       />
-      {children}
+      <Suspense>
+        {children}
+      </Suspense>
     </>
   );
 }
