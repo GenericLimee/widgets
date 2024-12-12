@@ -1,9 +1,9 @@
 'use client'
 
 import { useState } from 'react';
-import Button from './Button';
 
 import clsx from 'clsx';
+import Link from 'next/link'
 
 export default function Nav({ links, buttonCN }: { links: {href: string, label: string}[], buttonCN: string }) {
   const [clicked, setClicked] = useState(false); // button cover clicked or not
@@ -21,16 +21,16 @@ export default function Nav({ links, buttonCN }: { links: {href: string, label: 
             clicked ? "left-[-130px] bg-[#ddd] scale-x-[0.115] scale-y-100" : "bg-[#0a0a0a] scale-100 left-0"
           )}
         />
-        <div className="flex justify-start items-center flex-col h-screen w-[90%] p-4 absolute pointer-events-none bg-white">
+        <div className="flex justify-start items-center flex-col h-screen w-[90%] p-5 absolute pointer-events-none bg-white">
           {links.map((link, i) => { // maps the pages' respective buttons (except the boom and error pages of course)
             return (
-              <Button 
+              <Link
                 className={buttonCN}
                 href={link.href}
                 key={link.label + i}
               >
                 {link.label}
-              </Button>
+              </Link>
             );
           })}
         </div>

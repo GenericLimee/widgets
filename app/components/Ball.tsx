@@ -18,7 +18,7 @@ import NoSSR from './NoSSR';
 const colorRange: Range = [50, 150] ; // range of color, like rgb(a-b, c-d, e-f)
 const distance: number = 40; // distance that the ball with travel away from mouse in average vw & vh
 const ballHitboxSize: number = 512; // in px
-const visibleBallPercent: number = 10;
+const visibleBallPercent: number = 10; // percent of ball visible
 
 
 // types
@@ -131,7 +131,7 @@ export default function RBall({ windowDims }: { windowDims: Size }) {
       <div
         className={clsx(
           "absolute br-full origin-center transform-gpu",
-          state.ae ? "flex pointer-events-auto" : "pointer-events-none",
+          state.ae ? "flex pointer-events-auto" : "pointer-events-none", // makes hitbox disappear for faster movement in blobs
         )}
         onMouseOver={() => { if (state.ae) dispatch({ type: "move" }) }}
         onTransitionEnd={() => dispatch({ type: "transitionEnded" })}

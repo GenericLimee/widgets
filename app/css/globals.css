@@ -83,3 +83,8 @@ caption, li {
   font-size: 20px;
   margin-bottom: 5px;
 }
+
+h1 {
+  font-size: 40px;
+  font-weight: 600;
+}

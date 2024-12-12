@@ -5,7 +5,14 @@ export default function Layout({ children }: { children: ReactNode }) {
   return (
     <>
       <Nav
-        buttonCN="self-stretch m-2"
+        buttonCN="
+          pointer-events-auto 
+          transition-[transform, shadow] duration-200 
+          p-2 mx-5 mb-3 text-2xl w-full
+          bg-zinc-200 text-black
+          hover:-translate-y-1.5 hover:shadow-md
+          active:translate-x-0 active:translate-y-0 active:shadow-none
+        "
         links={[
           {
             href: "/",
@@ -27,6 +34,7 @@ export default function Layout({ children }: { children: ReactNode }) {
             href: "/widgets/spin-thing",
             label: "Spin"
           },
+          
         ]}
       />
       <Suspense>

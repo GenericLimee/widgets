@@ -19,7 +19,7 @@
 # misc
 .DS_Store
 *.pem
-/app/archived
+/archived
 
 # debug
 npm-debug.log*

@@ -1,3 +1,4 @@
+import { transform } from "next/dist/build/swc";
 import type { Config } from "tailwindcss";
 
 const config: Config = {
@@ -21,12 +22,27 @@ const config: Config = {
       keyframes: {
         spinny: {
           '0%': { transform: "translate(10%, 0) rotate(-180deg)" },
-          "100%": { transform: "translate(90%, 0) rotate(180deg)" }
+          '100%': { transform: "translate(90%, 0) rotate(180deg)" }
         },
+        idk: {
+          '0%': { transform: "scale(1)" },
+          '100%': { transform: "scale(1.05)" }
+        },
+        spinIn: {
+          '0%': { transform: "translate(0, 0) rotate(0deg)" },
+          '100%': { transform: "translate(100vw, 100vw) rotate(90deg)" }
+        },
+        spinOut: {
+          '0%': { transform: "translate(0, 0) rotate(0deg)" },
+          '100%': { transform: "translate(-100vw, -100vw) rotate(-90deg)" }
+        }
       },
       animation: {
         'spinny': "spinny 5s cubic-bezier(0.77, 0, 0.175, 1) infinite alternate",
         'spinny-reverse': "spinny 5s cubic-bezier(0.77, 0, 0.175, 1) infinite alternate-reverse",
+        'idk': "idk .2s ease-in-out 2 alternate forwards",
+        'spin-out': "spinOut 1s cubic-bezier(0.64, 0, 0.78, 0) 1 normal forwards",
+        'spin-in': "spinIn 1s cubic-bezier(0.64, 0, 0.78, 0) 1 reverse forwards"
       }
     },
   },
