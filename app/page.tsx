@@ -12,19 +12,6 @@ export default function Page() {
         stuff={[
           {
             label: {
-              text: "Widgets",
-              cn: "bg-slate-800",
-            },
-            content: home => (
-              <div className="p-7 border-slate-600 border-2 flex justify-start items-center rounded-3xl">
-                <h1>Widgets.</h1>
-                <Link href="/widgets" className="p-3 font-semibold bg-orange-400 ml-5 rounded-full">Launch</Link>
-                <button onClick={home} className="p-3 font-semibold bg-orange-500 ml-5 rounded-full">Back</button>
-              </div>
-            )
-          },
-          {
-            label: {
               text: "Overview",
               cn: "bg-slate-700"
             },
@@ -40,6 +27,34 @@ export default function Page() {
                 </p>
                 <button className="m-10 bg-orange-800 p-5 rounded-3xl" onClick={home}>Back</button>
               </>
+            )
+          },
+          {
+            label: {
+              text: "Widgets",
+              cn: "bg-slate-800",
+            },
+            content: home => (
+              <div className="p-7 border-slate-600 border-2 flex justify-start items-center rounded-3xl">
+                <h1>Widgets.</h1>
+                <Link href="/widgets" className="p-3 font-semibold bg-orange-400 ml-5 rounded-full">Launch</Link>
+                <button onClick={home} className="p-3 font-semibold bg-orange-500 ml-5 rounded-full">Back</button>
+              </div>
+            )
+          },
+          {
+            label: {
+              text: "Credits",
+              cn: "bg-slate-700",
+            },
+            content: home => (
+              <div className="">
+                <p className="m-5 p-5 bg-slate-800 rounded-3xl">
+                  <b>Main Programmer:</b> Ethan Lin<br/>
+                  <b>Advice:</b> StackOverflow, GeeksForGeeks, MDN Web Docs, and W3 Schools
+                </p>
+                <button onClick={home} className="p-3 font-semibold bg-orange-500 ml-5 rounded-3xl">Back</button>
+              </div>
             )
           }
         ]}

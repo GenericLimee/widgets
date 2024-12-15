@@ -35,10 +35,10 @@ export default function CardBoard({ stuff, boardcn, labelcn }: { labelcn?: strin
     <div 
       onAnimationEnd={() => { if (page !== nextPage) setPage(nextPage) }}
       className={clsx(
-        page < 0 && boardcn ? boardcn : "",
-        page !== nextPage ? "animate-spin-out" : 
-        page === -2       ? "animate-none" : 
-                            "animate-spin-in"
+        page < 0 && boardcn, // if on homepage use home styles if not then don't
+        page !== nextPage ? "animate-spin-out" : // if new page changed, spin out
+        page === -2       ? "animate-none" : // else if page just mounted, do nothing
+                            "animate-spin-in" // else spin in anim
       )}
     >
       {page < 0 ? homePage() : contentPage()}

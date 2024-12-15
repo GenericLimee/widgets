@@ -5,7 +5,7 @@ import { useURLSearchParams, useWindowSize } from '@/customHooks';
 import { ChangeEvent } from "react";
 
 export default function Page() {
-  const windowDims: { width: number, height: number } | undefined = useWindowSize(100);
+  const windowDims: { width: number, height: number } = useWindowSize(100);
   const [SP, setSP] = useURLSearchParams();
   const num = SP.get('num');
   

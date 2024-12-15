@@ -5,7 +5,7 @@ export function useWindowSize(delay?: number) { // delay in ms
   const [windowSize, setWindowSize] = useState<{
     width: number,
     height: number
-  } | undefined>(undefined);
+  }>({ width: 0, height: 0 });
 
   useEffect(() => {
     let timeout: NodeJS.Timeout;
