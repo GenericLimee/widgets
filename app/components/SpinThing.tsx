@@ -12,7 +12,7 @@ export default function SpinThing({ width, height }: { width: number, height: nu
     <NoSSR>
       <div className="flex flex-row">
         {arr.map(i => 
-          <div className="flex flex-col mt-16" key={i}>
+          <div className="flex flex-col" key={i}>
             {arr2.map(j => 
               <hr
                 key={j}

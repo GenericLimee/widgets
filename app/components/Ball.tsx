@@ -14,10 +14,19 @@ import clsx from 'clsx';
 import NoSSR from './NoSSR';
 
 
-// values
-const colorRange: Range = [50, 150] ; // range of color, like rgb(a-b, c-d, e-f)
+// behaviour
 const distance: number = 40; // distance that the ball with travel away from mouse in average vw & vh
 const ballHitboxSize: number = 512; // in px
+
+const ballBoundaries: [Range, Range] = [[.1, .9], [.1, .9]]
+const ballBoundaryEdit: [Range, Range] = [[0, 0], [0, -125]]
+//    ___100%____
+//    |         |
+// 0% |         | 100%
+//    |___0%____|
+
+// looks
+const colorRange: Range = [20, 100] ; // range of color, like rgb(a-b, c-d, e-f)
 const visibleBallPercent: number = 10; // percent of ball visible
 
 
@@ -38,7 +47,7 @@ type State = {
 
 
 // utilities
-const posToTransformStyle = (pos: Position): CSSProperties => ({ transform: `translate(${pos[0]}px, ${-pos[1]}px)` });
+const posToTransformStyle = (pos: Position): CSSProperties => ({ transform: `translate(${pos[0] - ballHitboxSize / 2}px, ${-pos[1] + ballHitboxSize / 2}px)` });
 const getCenterPos = (windowSize: Size): Position => [(windowSize.width - ballHitboxSize) / 2, (windowSize.height - ballHitboxSize) / 2];
 const getRandom = (range: Range): number => { while (true) { if (Math.random() > .5) { return (range[1] - range[0]) * Math.random() + range[0] } } }
 const getRandomPos = (currentPos: Position, windowSize: Size): Position => {
@@ -53,13 +62,40 @@ const getRandomPos = (currentPos: Position, windowSize: Size): Position => {
     }
 
     const randPos: Position = [
-      Math.floor(getRandom([windowSize.width * .1, windowSize.width * 0.9 - 256])), // random width
-      Math.floor(getRandom([windowSize.height * 0.1 - 256, windowSize.height * 0.9 - 256])) // random height
+      Math.floor(getRandom([
+        windowSize.width * ballBoundaries[0][0] + ballBoundaryEdit[0][0], 
+        windowSize.width * ballBoundaries[0][1] + ballBoundaryEdit[0][1]
+      ])), // random width
+      Math.floor(getRandom([
+        windowSize.height * ballBoundaries[1][0] + ballBoundaryEdit[1][0], 
+        windowSize.height * ballBoundaries[1][1] + ballBoundaryEdit[1][1]
+      ])) // random height
     ];
+    
     if (Math.sqrt(Math.pow(randPos[0] - currentPos[0], 2) + Math.pow(randPos[1] - currentPos[1], 2)) > pxDistance) { return randPos }
     // if √{   [  ( randPos[0] - currentPos[0] )^2 + ( randPos[1] - currentPos[1] )^2  ]  >  pxDistance   }      unreadable fr
   }
 };
+
+// NEW GET RANDOM POSITION  TODO
+// const getRandomPos = (currentPos: Position, windowSize: Size): Position => {
+//   const pxDistance: number = distance * ((windowSize.width + windowSize.height) / 200);
+    
+//   const randPos: Position = [
+//     Math.floor(
+//       (windowSize.width * ballBoundaries[0][0] - 256) - (currentPos[0] - pxDistance) < 0
+//         ? getRandom([windowSize.width * ballBoundaries[0][0] - 256, currentPos[0] - pxDistance])
+//         : getRandom([currentPos[0] + pxDistance, windowSize.width * ballBoundaries[0][1] - 256])
+//     ), // random width
+//     Math.floor(
+//       (windowSize.height * ballBoundaries[1][0] - 256) - (currentPos[1] - pxDistance) < 0
+//         ? getRandom([windowSize.height * ballBoundaries[1][0] - 256, currentPos[1] - pxDistance])
+//         : getRandom([currentPos[1] + pxDistance, windowSize.height * ballBoundaries[1][1] - 256])
+//     ) // random height
+//   ];
+
+//   return randPos; // fallback
+// };
 
 
 // reducer
@@ -130,7 +166,7 @@ export default function RBall({ windowDims }: { windowDims: Size }) {
     <NoSSR>
       <div
         className={clsx(
-          "absolute br-full origin-center transform-gpu",
+          "absolute rounded-full transform-gpu",
           state.ae ? "flex pointer-events-auto" : "pointer-events-none", // makes hitbox disappear for faster movement in blobs
         )}
         onMouseOver={() => { if (state.ae) dispatch({ type: "move" }) }}

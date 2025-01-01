@@ -3,16 +3,10 @@ import Nav from '@/components/Nav';
 
 export default function Layout({ children }: { children: ReactNode }) {
   return (
-    <>
+    <div className="flex flex-col items-center justify-center h-screen w-screen">
       <Nav
-        buttonCN="
-          pointer-events-auto 
-          transition-[transform, shadow] duration-200 
-          p-2 mx-5 mb-3 text-2xl w-full
-          bg-zinc-200 text-black
-          hover:-translate-y-1.5 hover:shadow-md
-          active:translate-x-0 active:translate-y-0 active:shadow-none
-        "
+        className="p-5 bg-slate-700 w-full"
+        linkClassName="p-3 m-2 bg-slate-800 rounded-full"
         links={[
           {
             href: "/",
@@ -23,16 +17,18 @@ export default function Layout({ children }: { children: ReactNode }) {
             label: "Home"
           },
           {
-            href: "/widgets/desc",
-            label: "Description"
+            href: "/widgets/about",
+            label: "About"
           },
           {
             href: "/widgets/ball?num=10",
-            label: "Ball"
+            label: "Ball",
+            className: "p-3 ml-6 m-2 bg-sky-950 rounded-2xl"
           },
           {
             href: "/widgets/spin-thing",
-            label: "Spin"
+            label: "Spin",
+            className: "p-3 m-2 bg-sky-950 rounded-2xl"
           },
           
         ]}
@@ -40,6 +36,6 @@ export default function Layout({ children }: { children: ReactNode }) {
       <Suspense>
         {children}
       </Suspense>
-    </>
+    </div>
   );
 }

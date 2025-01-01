@@ -19,7 +19,6 @@ export default function CardBoard({ stuff, boardcn, labelcn }: { labelcn?: strin
   const [page, setPage] = useState<number>(-2);
 
   // pages so they dont crowd up return
-  const contentPage = () => stuff[page].content(() => setNextPage(-1));
   const homePage = () => stuff.map((thing: CardStuff, i: number) => (
     <div
       key={thing.label.text + i}
@@ -32,16 +31,18 @@ export default function CardBoard({ stuff, boardcn, labelcn }: { labelcn?: strin
   ));
 
   return (
-    <div 
-      onAnimationEnd={() => { if (page !== nextPage) setPage(nextPage) }}
-      className={clsx(
-        page < 0 && boardcn, // if on homepage use home styles if not then don't
-        page !== nextPage ? "animate-spin-out" : // if new page changed, spin out
-        page === -2       ? "animate-none" : // else if page just mounted, do nothing
-                            "animate-spin-in" // else spin in anim
-      )}
-    >
-      {page < 0 ? homePage() : contentPage()}
-    </div>
+    <>
+      <div 
+        onAnimationEnd={() => { if (page !== nextPage) setPage(nextPage) }}
+        className={clsx(
+          page < 0 && boardcn, // if on homepage use home styles if not then don't
+          page !== nextPage ? "animate-spin-out" : // if new page changed, spin out
+          page === -2       ? "animate-none" : // else if page just mounted, do nothing
+                              "animate-spin-in" // else spin in anim
+        )}
+      >
+        {page < 0 ? homePage() : stuff[page].content(() => setNextPage(-1))}
+      </div>
+    </>
   );
 }
