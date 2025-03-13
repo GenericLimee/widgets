@@ -3,9 +3,9 @@ import Nav from '@/components/Nav';
 
 export default function Layout({ children }: { children: ReactNode }) {
   return (
-    <div className="flex flex-col items-center justify-center h-screen w-screen">
+    <div className="flex flex-col items-center justify-start h-screen w-screen">
       <Nav
-        className="p-5 bg-slate-700 w-full"
+        className="p-5 bg-slate-700 w-full place-self-start"
         linkClassName="p-3 m-2 bg-slate-800 rounded-full"
         links={[
           {

@@ -166,7 +166,7 @@ export default function RBall({ windowDims }: { windowDims: Size }) {
     <NoSSR>
       <div
         className={clsx(
-          "absolute rounded-full transform-gpu",
+          "absolute rounded-full transform-gpu will-change-transform",
           state.ae ? "flex pointer-events-auto" : "pointer-events-none", // makes hitbox disappear for faster movement in blobs
         )}
         onMouseOver={() => { if (state.ae) dispatch({ type: "move" }) }}

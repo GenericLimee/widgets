@@ -15,7 +15,7 @@ export default function Nav({
 }) {
 
   return (
-    <div className={" " + (className ?? "")}>
+    <div className={className ?? ""}>
       {links.map((link, i) => 
         <Link 
           className={link.className ?? linkClassName}
