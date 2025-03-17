@@ -1,7 +1,7 @@
 'use client'
 
 import SpinThing from "@/components/SpinThing";
-import { useWindowSize } from "@/customHooks";
+import { useWindowSize } from "@/customStuff";
 
 export default function HelloPage() {
   const dims: { width: number, height: number } | undefined = useWindowSize();

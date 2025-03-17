@@ -2,42 +2,41 @@
 
 import Checkbox from './Checkbox';
 import { useState } from 'react';
-import clsx from 'clsx';
 
 export default function Settings() {
   const [open, setOpen] = useState<boolean>(false);
+  const [openAA, setOpenAA] = useState<boolean>(false);
 
   return (
     <div 
-      className={clsx(
-        "rounded-3xl p-10 absolute transition-all duration-500 ease-satis select-none",
-        open 
-          ? "h-3/4 w-3/4 bottom-1/2 right-1/2 translate-x-1/2 translate-y-1/2 bg-slate-800" 
-          : "h-20 w-20 bottom-4 right-4 bg-slate-500 cursor-pointer"
-      )}
+      className={
+        "rounded-3xl transition-all duration-500 ease-satis select-none border-stone-950 " + 
+        ( open 
+          ? "h-3/4 w-3/4 p-10 absolute bottom-1/2 right-1/2 translate-x-1/2 translate-y-1/2 bg-slate-800 border-4" 
+          : "h-12 w-12 fixed bottom-4 right-4 cursor-pointer"
+        )
+      }
       onClick={() => { if (!open) setOpen(true) }}
     >
-      <div className={clsx("transition-opacity duration-500 grid gap-7 items-start justify-start", open ? "opacity-100" : "opacity-0")}>
-        <h1 className="self-start">Settings (In development)</h1>
+      <div className={"transition-opacity duration-500 grid gap-7 items-start justify-start " + (open ? "opacity-100" : "opacity-0")}>
+        <h1 className="self-start">Settings (Nonfunctional)</h1>
         <Checkbox
           text="Animations"
           onValueChange={() => {}}
-          cn="p-4 w-fit"
           defaultSet={true}
         />
         <Checkbox
           text="Gradients"
           onValueChange={() => {}}
-          cn="p-4 w-fit"
           defaultSet={true}
         />
         <div 
-          className="p-3 w-fit bg-gradient-to-bl from-slate-800 to-emerald-800 rounded-xl cursor-pointer self-end text-center"
+          className="border-slate-950 border-4 p-3 w-fit bg-gradient-to-bl from-slate-800 to-emerald-800 rounded-xl cursor-pointer self-end text-center"
           onClick={() => { if (open) setOpen(false) }}
         >Close</div>
       </div>
-      <svg className={clsx("transition-all duration-500 absolute bottom-1/2 right-1/2 translate-x-1/2 translate-y-1/2", open ? "opacity-0" : "opacity-100")} xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="60" height="60" viewBox="0 0 24 24">
-        <path d="M 10.490234 2 C 10.011234 2 9.6017656 2.3385938 9.5097656 2.8085938 L 9.1757812 4.5234375 C 8.3550224 4.8338012 7.5961042 5.2674041 6.9296875 5.8144531 L 5.2851562 5.2480469 C 4.8321563 5.0920469 4.33375 5.2793594 4.09375 5.6933594 L 2.5859375 8.3066406 C 2.3469375 8.7216406 2.4339219 9.2485 2.7949219 9.5625 L 4.1132812 10.708984 C 4.0447181 11.130337 4 11.559284 4 12 C 4 12.440716 4.0447181 12.869663 4.1132812 13.291016 L 2.7949219 14.4375 C 2.4339219 14.7515 2.3469375 15.278359 2.5859375 15.693359 L 4.09375 18.306641 C 4.33275 18.721641 4.8321562 18.908906 5.2851562 18.753906 L 6.9296875 18.1875 C 7.5958842 18.734206 8.3553934 19.166339 9.1757812 19.476562 L 9.5097656 21.191406 C 9.6017656 21.661406 10.011234 22 10.490234 22 L 13.509766 22 C 13.988766 22 14.398234 21.661406 14.490234 21.191406 L 14.824219 19.476562 C 15.644978 19.166199 16.403896 18.732596 17.070312 18.185547 L 18.714844 18.751953 C 19.167844 18.907953 19.66625 18.721641 19.90625 18.306641 L 21.414062 15.691406 C 21.653063 15.276406 21.566078 14.7515 21.205078 14.4375 L 19.886719 13.291016 C 19.955282 12.869663 20 12.440716 20 12 C 20 11.559284 19.955282 11.130337 19.886719 10.708984 L 21.205078 9.5625 C 21.566078 9.2485 21.653063 8.7216406 21.414062 8.3066406 L 19.90625 5.6933594 C 19.66725 5.2783594 19.167844 5.0910937 18.714844 5.2460938 L 17.070312 5.8125 C 16.404116 5.2657937 15.644607 4.8336609 14.824219 4.5234375 L 14.490234 2.8085938 C 14.398234 2.3385937 13.988766 2 13.509766 2 L 10.490234 2 z M 12 8 C 14.209 8 16 9.791 16 12 C 16 14.209 14.209 16 12 16 C 9.791 16 8 14.209 8 12 C 8 9.791 9.791 8 12 8 z"></path>
+      <svg className={"transition-all duration-500 abs-center h-full w-full pointer-events-none " + (open ? "opacity-0" : "opacity-100")} xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0,0,256,256">
+        <g style={{mixBlendMode: 'normal',fill: "#aaa" ,fillRule: "nonzero",stroke: "none",strokeWidth: 1,strokeLinecap: "butt",strokeLinejoin: "miter",strokeMiterlimit: "10",strokeDasharray: "",strokeDashoffset: "0",fontFamily: "none",fontWeight: "none",fontSize: "none"}}><g transform="scale(5.33333,5.33333)"><path d="M39.139,26.282c-0.713,-0.523 -1.139,-1.363 -1.139,-2.248c0,-0.885 0.426,-1.725 1.138,-2.247l3.294,-2.415c0.525,-0.386 0.742,-1.065 0.537,-1.684c-0.848,-2.548 -2.189,-4.872 -3.987,-6.909c-0.433,-0.488 -1.131,-0.642 -1.728,-0.38l-3.709,1.631c-0.808,0.356 -1.749,0.305 -2.516,-0.138c-0.766,-0.442 -1.28,-1.23 -1.377,-2.109l-0.446,-4.072c-0.071,-0.648 -0.553,-1.176 -1.191,-1.307c-2.597,-0.531 -5.326,-0.54 -7.969,-0.01c-0.642,0.129 -1.125,0.657 -1.196,1.308l-0.442,4.046c-0.097,0.88 -0.611,1.668 -1.379,2.11c-0.766,0.442 -1.704,0.495 -2.515,0.138l-3.729,-1.64c-0.592,-0.262 -1.292,-0.11 -1.725,0.377c-1.804,2.029 -3.151,4.35 -4.008,6.896c-0.208,0.618 0.008,1.301 0.535,1.688l3.273,2.4c0.714,0.524 1.14,1.364 1.14,2.249c0,0.885 -0.426,1.725 -1.138,2.247l-3.294,2.415c-0.525,0.386 -0.742,1.065 -0.537,1.684c0.848,2.548 2.189,4.872 3.987,6.909c0.433,0.489 1.133,0.644 1.728,0.38l3.709,-1.631c0.808,-0.356 1.748,-0.305 2.516,0.138c0.766,0.442 1.28,1.23 1.377,2.109l0.446,4.072c0.071,0.648 0.553,1.176 1.191,1.307c1.314,0.268 2.664,0.404 4.015,0.404c1.318,0 2.648,-0.133 3.953,-0.395c0.642,-0.129 1.125,-0.657 1.196,-1.308l0.443,-4.046c0.097,-0.88 0.611,-1.668 1.379,-2.11c0.766,-0.441 1.705,-0.493 2.515,-0.138l3.729,1.64c0.594,0.263 1.292,0.111 1.725,-0.377c1.804,-2.029 3.151,-4.35 4.008,-6.896c0.208,-0.618 -0.008,-1.301 -0.535,-1.688zM24,31c-3.866,0 -7,-3.134 -7,-7c0,-3.866 3.134,-7 7,-7c3.866,0 7,3.134 7,7c0,3.866 -3.134,7 -7,7z"></path></g></g>
       </svg>
     </div>
   );

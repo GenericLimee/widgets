@@ -165,10 +165,10 @@ export default function RBall({ windowDims }: { windowDims: Size }) {
   return (
     <NoSSR>
       <div
-        className={clsx(
-          "absolute rounded-full transform-gpu will-change-transform",
-          state.ae ? "flex pointer-events-auto" : "pointer-events-none", // makes hitbox disappear for faster movement in blobs
-        )}
+        className={
+          "absolute rounded-full transform-gpu will-change-transform " +
+          (state.ae ? "flex pointer-events-auto" : "pointer-events-none") // makes hitbox disappear for faster movement in blobs
+        }
         onMouseOver={() => { if (state.ae) dispatch({ type: "move" }) }}
         onTransitionEnd={() => dispatch({ type: "transitionEnded" })}
         style={state.style}

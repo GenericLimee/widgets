@@ -1,7 +1,7 @@
 'use client'
 
 import Ball from '@/components/Ball';
-import { useURLSearchParams, useWindowSize } from '@/customHooks';
+import { useURLSearchParams, useWindowSize } from '@/customStuff';
 import { ChangeEvent } from "react";
 
 export default function Page() {

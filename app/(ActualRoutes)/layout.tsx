@@ -1,7 +1,7 @@
 'use client'
 
 import { ReactNode } from 'react';
-import { useMobileDetect } from '@/customHooks';
+import { useMobileDetect } from '@/customStuff';
 import Settings from '@/components/Settings';
 
 export default function Layout({ children }: { children: ReactNode }) {
