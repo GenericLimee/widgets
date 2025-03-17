@@ -10,23 +10,29 @@ export default function Settings() {
   return (
     <div 
       className={clsx(
-        "rounded-3xl p-10 absolute transition-all duration-500 ease-satis",
+        "rounded-3xl p-10 absolute transition-all duration-500 ease-satis select-none",
         open 
           ? "h-3/4 w-3/4 bottom-1/2 right-1/2 translate-x-1/2 translate-y-1/2 bg-slate-800" 
           : "h-20 w-20 bottom-4 right-4 bg-slate-500 cursor-pointer"
       )}
       onClick={() => { if (!open) setOpen(true) }}
     >
-      <div className={clsx("transition-opacity duration-500 grid gap-5 items-start justify-start", open ? "opacity-100" : "opacity-0")}>
-        <h1 className="self-start">Settings</h1>
+      <div className={clsx("transition-opacity duration-500 grid gap-7 items-start justify-start", open ? "opacity-100" : "opacity-0")}>
+        <h1 className="self-start">Settings (In development)</h1>
         <Checkbox
           text="Animations"
           onValueChange={() => {}}
-          cn="p-2 transition-colors duration-300"
+          cn="p-4 w-fit"
+          defaultSet={true}
+        />
+        <Checkbox
+          text="Gradients"
+          onValueChange={() => {}}
+          cn="p-4 w-fit"
           defaultSet={true}
         />
         <div 
-          className="m-2 bg-lime-800 rounded-xl p-2 cursor-pointer self-end text-center"
+          className="p-3 w-fit bg-gradient-to-bl from-slate-800 to-emerald-800 rounded-xl cursor-pointer self-end text-center"
           onClick={() => { if (open) setOpen(false) }}
         >Close</div>
       </div>

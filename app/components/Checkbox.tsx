@@ -17,8 +17,8 @@ export default function Checkbox({
   return (
     <div 
       className={clsx(
-        (cn ?? "") + " flex items-center justify-center rounded-xl cursor-pointer",
-        value ? "bg-lime-600" : "bg-red-700"
+        (cn ?? "") + " flex items-center justify-center rounded-xl cursor-pointer transition-colors duration-300",
+        value ? "bg-lime-700" : "bg-red-700"
       )} 
       onClick={() => { onValueChange(!value); setValue(!value) }}
     >
