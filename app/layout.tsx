@@ -14,7 +14,7 @@ export default function RootLayout({
 
   return (
     <html lang="en">
-      <body className="overflow-hidden transition-transform">
+      <body className="transition-transform">
         {children}
       </body>
     </html>
