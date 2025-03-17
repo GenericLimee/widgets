@@ -10,7 +10,6 @@
 
 //imports
 import { CSSProperties, useEffect, useReducer } from 'react';
-import clsx from 'clsx';
 import NoSSR from './NoSSR';
 
 

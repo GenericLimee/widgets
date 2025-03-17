@@ -5,7 +5,6 @@ import { useState } from 'react';
 
 export default function Settings() {
   const [open, setOpen] = useState<boolean>(false);
-  const [openAA, setOpenAA] = useState<boolean>(false);
 
   return (
     <div 
