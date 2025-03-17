@@ -1,6 +1,6 @@
 'use client'
 
-import RBall from '@/components/Ball';
+import Ball from '@/components/Ball';
 import { useURLSearchParams, useWindowSize } from '@/customHooks';
 import { ChangeEvent } from "react";
 
@@ -30,7 +30,7 @@ export default function Page() {
       />
       <p className="m-5 bg-slate-300 text-black py-2 px-3 rounded-md">Number of ball: <b>{Number(num)}</b></p>
       {windowDims && arr.map(key => 
-        <RBall key={key} windowDims={windowDims} />
+        <Ball key={key} windowDims={windowDims} />
       )}
     </div>
   );

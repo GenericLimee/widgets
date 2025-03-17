@@ -16,6 +16,7 @@ export default function Desc() {
       <ul className="m-8">
         <li><b>Spin</b></li>
         <li> - Just a bunch of spinning lines.</li>
+        <li> - May cause minor eye trauma.</li>
       </ul>
       <table cellSpacing={100} className="ml-8 mt-4 flex flex-col">
         <tbody>

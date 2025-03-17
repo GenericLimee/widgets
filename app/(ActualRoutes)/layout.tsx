@@ -2,6 +2,7 @@
 
 import { ReactNode } from 'react';
 import { useMobileDetect } from '@/customHooks';
+import Settings from '@/components/Settings';
 
 export default function Layout({ children }: { children: ReactNode }) {
   const isMobile = useMobileDetect().isMobile();
@@ -12,5 +13,10 @@ export default function Layout({ children }: { children: ReactNode }) {
         <div className="text-3xl">Sorry but this app does not work with mobile devices.</div> <br/> (Well technichally it does, but it looks horrible.)
       </div>
     </div>
-  ) : children;
+  ) : (
+    <>
+      {children}
+      <Settings />
+    </>
+  );
 }

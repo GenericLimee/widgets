@@ -12,7 +12,15 @@ interface CardStuff {
   content: (a: () => void) => ReactNode
 }
 
-export default function CardBoard({ stuff, boardcn, labelcn }: { labelcn?: string, stuff: CardStuff[], boardcn?: string }) {
+export default function CardBoard({ 
+  stuff, 
+  boardcn, 
+  labelcn 
+}: { 
+  stuff: CardStuff[], 
+  labelcn?: string, 
+  boardcn?: string 
+}) {
 
   // state
   const [nextPage, setNextPage] = useState<number>(-2); 
