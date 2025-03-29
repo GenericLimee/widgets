@@ -39,7 +39,7 @@ export default function Settings() {
           if (!show) setOpen(false)
         }}
       >
-        <h1 className="self-start">Settings (Nonfunctional)</h1>
+        <h1 className="self-start">Settings that are Nonfunctional</h1>
         <Checkbox
           text="Animations"
           onValueChange={() => {}}
