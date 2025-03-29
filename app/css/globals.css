@@ -92,6 +92,11 @@ h1 {
   font-weight: 600;
 }
 
+h2 {
+  font-size: 25px;
+  font-weight: 500;
+}
+
 .abs-center {
   transform: translate(-50%, -50%);
   left: 50%;
