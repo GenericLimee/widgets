@@ -4,7 +4,7 @@ import { ReactNode } from "react";
 export default function Layout({ children }: { children: ReactNode }) {
   
   return (
-    <div className="flex flex-col items-center justify-start h-screen w-screen">
+    <div className="absolute top-0 flex flex-col items-center justify-start min-h-screen h-fit w-screen overflow-scroll bg-gradient-to-tr from-amber-900 to-rose-900 bg-auto">
       <Nav
         className="p-5 bg-slate-700 w-full place-self-start"
         linkClassName="p-3 m-2 bg-slate-800 rounded-full"

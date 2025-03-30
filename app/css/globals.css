@@ -1,6 +1,6 @@
 /* @import "tailwindcss"; */
 /* @custom-variant no-anim (&:where([animations=none], [animations=none] *)); */
-
+@import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -94,7 +94,7 @@ h1 {
 
 h2 {
   font-size: 25px;
-  font-weight: 500;
+  font-weight: 700;
 }
 
 .abs-center {
@@ -115,4 +115,10 @@ h2 {
 
 .-bg-y-300 {
   background-position-y: -300px;
+}
+
+.font-ad {
+  font-family: "Architects Daughter", cursive;
+  font-weight: 400;
+  font-style: normal;
 }
