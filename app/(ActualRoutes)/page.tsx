@@ -5,11 +5,14 @@ import Link from "next/link";
 
 export default function Page() {
   return (
-    <div className="h-full w-full flex items-center justify-center">
+    <div className="h-full w-full flex items-center justify-center m-">
       <CardBoard
         boardcn="
-          p-2 rounded-3xl flex flex-wrap flex-row justify-center border-2 border-slate-500 will-change-transform
+          p-2 m-20 rounded-3xl 
+          flex flex-wrap flex-row justify-center 
+          border-2 border-slate-500 
           hover:p-5
+          will-change-transform
           transition-[padding]
           ease-satis
           duration-500
