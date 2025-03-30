@@ -4,14 +4,14 @@ export default function Page() {
       <div className="text-5xl text-red-600 font-bold">--IN-DEVELOPMENT--</div><br/><br/>
       <h1>General</h1>
       <p>
-        DURING YOUR TURN, AFTER 15 SECONDS MAX, IF YOU DON'T DO ANYTHING, YOU WILL BE SKIPPED <br/>
+        DURING YOUR TURN, AFTER 15 SECONDS MAX, IF YOU DON&#39;T DO ANYTHING, YOU WILL BE SKIPPED <br/>
         (womp womp) This game is designed to be played with 5+ people<br/>
       </p>
       <br/>
       <h2>Politics - Ways of rule<br/></h2>
       <ol className="list-[upper-roman]">
         <li>
-          Communism: you don't have to pay your civilians, but you only get 50% of the money
+          Communism: you don&#39;t have to pay your civilians, but you only get 50% of the money
         </li>
         <li>
           Democracy: normal things, start with more educated people
@@ -34,14 +34,14 @@ export default function Page() {
       <br/>
       <h2>Encirclement - Debuff (Passive)</h2>
       <p>
-        Your opponent's damage is halved, while yours is doubled, until encirclement is broken<br/> (morale)
+        Your opponent&#39;s damage is halved, while yours is doubled, until encirclement is broken<br/> (morale)
       </p>
       <br/>
       <h2>Cities - You can found a city for $1000<br/></h2>
       <p>
         A military base is 10 medical tents, a military base and an airfield, but is still considered a city.<br/> 
         It itself can hold 15 units, not counting the base, the tents, and the airfield, thus making up its garrison. <br/> 
-        In order to take an opponent's city, you need conduct a siege<br/> 
+        In order to take an opponent&#39;s city, you need conduct a siege<br/> 
         All cities start at a fortification class of I, and upgrading it costs $500<br/> 
       </p>
       <br/>
@@ -49,14 +49,14 @@ export default function Page() {
       <p>
         The Fortification Class of cities determines how long it will take for an army to peirce its defences.<br/> 
         Time = (FortClass * (garrisonMass + 2)) / OpponentStrength :
-        To increase a citiy's fortification class, it would take 5 turns and 5^previousFC
+        To increase a citiy&#39;s fortification class, it would take 5 turns and 5^previousFC
       </p>
       <br/>
       <h2>Civilians - Mechanic</h2>
       <p>
         Every 3 turns except the first 6, you must pay $100 * (class) to your civilians altogether<br/>
-        If you don't, after the next three turns you will have to play 2.5 times that<br/> 
-        If you still don't, then there will be a rebellion that I will control<br/> 
+        If you don&#39;t, after the next three turns you will have to play 2.5 times that<br/> 
+        If you still don&#39;t, then there will be a rebellion that I will control<br/> 
         Your money produced will be halved<br/><br/>
         Civilians can also contribute to discoveries<br/>
         If you have a population of 10K, qol 0.5, you would have a 1% chance discovery every round<br/>
