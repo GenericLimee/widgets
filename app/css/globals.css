@@ -1,6 +1,6 @@
 /* @import "tailwindcss"; */
 /* @custom-variant no-anim (&:where([animations=none], [animations=none] *)); */
-@import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -97,6 +97,12 @@ h2 {
   font-weight: 700;
 }
 
+li {
+  transform: translate(2rem, 0);
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
 .abs-center {
   transform: translate(-50%, -50%);
   left: 50%;
@@ -121,4 +127,15 @@ h2 {
   font-family: "Architects Daughter", cursive;
   font-weight: 400;
   font-style: normal;
+}
+
+.font-rubik {
+  font-family: "Rubik", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+h2 ~ p, h1 ~ p {
+  transform: translate(2rem)
 }
