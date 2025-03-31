@@ -103,6 +103,22 @@ li {
   line-height: 1.5;
 }
 
+hr {
+  border: none;
+  background-color: white;  /* Modern Browsers */
+  border-radius: 5px;
+  margin: 2rem;
+}
+
+.big {
+  height: 5px;
+}
+
+.smol {
+  height: 3px;
+  width: 3rem;
+}
+
 .abs-center {
   transform: translate(-50%, -50%);
   left: 50%;

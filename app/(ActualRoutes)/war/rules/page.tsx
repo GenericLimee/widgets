@@ -8,7 +8,7 @@ export default function Page() {
         (womp womp) <br/>
          - This game is designed to be played with 5+ people<br/>
       </b></p>
-      <br/>
+      <hr className="big"/>
       <h2>Politics - Ways of rule<br/></h2>
       <ol className="list-inside">
         <li>
@@ -24,23 +24,23 @@ export default function Page() {
           <b> - Nazism:</b> Facism but money produces + 50% and you have to pay civilians twice as much every turn.
         </li>
       </ol>
-      <br/>
+      <hr className="smol"/>
       <h2>Movement cost - $75 / unit / cm<br/></h2>
       <p>
-        Units moved greater than 30 cm will experience significant morale loss.
+         - Units moved greater than 30 cm will experience significant morale loss.
       </p>
-      <br/>
+      <hr className="smol"/>
       <h2>Usage cost - $100 / unit / use<br/></h2>
       <p>
-        You may also blitz, where you can use units multiple times in one turn, <br/>
+         - You may also blitz, where you can use units multiple times in one turn, <br/>
         but it will cost $(100 * uses^3).
       </p>
-      <br/>
+      <hr className="smol"/>
       <h2>Encirclement - Debuff (Passive)</h2>
       <p>
-        Your opponent&#39;s damage is halved, while yours is doubled, until encirclement is broken<br/> (morale)
+        Your opponent&#39;s morale is halved, while yours is doubled until encirclement is broken.
       </p>
-      <br/>
+      <hr className="smol"/>
       <h2>Cities - You can found a city for $1000<br/></h2>
       <p>
          - A military base is 10 medical tents, a military base and an airfield, but is still considered a city.<br/> 
@@ -49,19 +49,24 @@ export default function Page() {
          - All cities start at a fortification class of I, and upgrading it costs $500<br/> 
          - All cities start with a population of 1000
       </p>
-      <br/>
+      <hr className="smol"/>
       <h2>Siege - Seiging</h2>
       <p>
          - The Fortification Class of cities determines how long it will take for an army to peirce its defences.<br/> 
          - Time = (FortClass * (garrisonMass + 2)) / OpponentStrength :
          - To increase a citiy&#39;s fortification class, it would take 5 turns and 5^previousFC
       </p>
-      <br/>
+      <hr className="smol"/>
       <h2>Civilians - Mechanic</h2>
       <p>
          - Every 3 turns except the first 6, you must pay $200 * (class)^2 / 2 to your civilians altogether<br/>
          - If you don&#39;t, after the next three turns you will have to play 2.5 times that<br/> 
-         - If you still don&#39;t, then there will be a rebellion that I will control<br/> 
+         - If you still don&#39;t, then there will be a rebellion that I will control<br/><br/>
+         - During a rebellion, you can choose to attempt to make peace. <br/>
+         Then, all of the territory (and all the money makers inside it) <br/>
+        towards the enemy from the furthest point of the rebellion is now the enemies. All military units are still yours, 
+        but all structures (like airfields) are not. If you happen to have had a really low qol among the citizens (qol &lt; 0.2),
+        the citizens would reject your offer and assasinate you, and you will lose the game.
          - Your money produced will be halved<br/><br/>
          - Civilians can also contribute to discoveries
          - If you have a population of 10K, qol 0.5, you would have a 1% chance discovery every round<br/>
@@ -71,15 +76,15 @@ export default function Page() {
         or a sad and stupid population for money<br/> 
          - Education also slightly boosts army strength
       </p>
-      <br/>
+      <hr className="smol"/>
       <h2>Destroying</h2>
       <p>
          - You can choose to destroy structures, but not living units. <br/>
-         - It&#39;s free 🙂 <br/>
+         - It&#39;s free :) <br/>
          - Destroying structures will not give you any money.<br/>
          - Feel free to trade (structures only), but movement cost for transport will be doubled.<br/>
       </p>
-      <br/>
+      <hr className="smol"/>
       <h2>Damage - redirection and knockback</h2>
       <p>
          - If you want to attack more than one unit, then you can split the damage between them.<br/>
@@ -87,7 +92,7 @@ export default function Page() {
          - Knockback hp = Remaining Hp / 2. <br/>
          - If the knockback Hp = 0, then the unit is pushed 5 mm DIRECTLY AWAY from the attacking unit, and knockback Hp resets.<br/>
       </p>
-      <br/>
+      <hr className="smol"/>
       <h2><i>Economy - Economics</i></h2>
       <p>
          - Economy is a point-based value that ranges from 1-1000, 1 being nonexistent, 1000 being yay. <br/>
@@ -98,26 +103,24 @@ export default function Page() {
          - If your economy is below 250, then you will have to pay $100 extra for your civilians because they are angy.<br/>
          - If your economy is above 750, then you pay $100 less because civilians like you.<br/>
       </p>
-      <br/>
-      <br/>
+      <hr className="big"/>
       <h1>Specific Mechanics</h1>
-      <br/>
       <h2>Stealth - </h2>
       <p>
         The unit is invisible, but every turn there is a 10% chance that the opponent will see it (for one turn only). 
         The opponent CAN attack random spots in hopes of destroying the stealth unit.
       </p>
-      <br/>
+      <hr/>
       <h2>Military bases - </h2>
         <p>
            - 2 Units&#39; healths increased to 150% in 5 turns<br/>
         </p>
-      <br/>
+        <hr className="smol"/>
       <h2>Missile Interceptors - </h2>
       <p>
          - 75% chance to intercept and disable incoming missle<br/>
       </p>
-      <br/>
+      <hr className="smol"/>
       <h2>Radiation - Debuff</h2>
       <p>
          - Nukes will emit radiation similar to radiation of a meltdown, but it only takes 5 turns to clear<br/>
@@ -127,23 +130,24 @@ export default function Page() {
          - Building or sending any units there will be useless<br/> 
          - Radiation will take 20 turns to return to safe levels.<br/>
       </p>
-      <br/>
+      <hr className="smol"/>
       <h2>Artillery - </h2>
       <p>
          - Artillery deals damage every turn, not just yours, and has a 50% chance of doing so.
          - It only costs the usage cost for all the turns after yours.
       </p>
+      <hr className="smol"/>
       <h2>Trench charge - </h2>
       <p>
          - All debuffs on the enemy and you from your trench are eliminated, but the ones you get from the enemy trench are still there. 
          - Infantry & tanks only.
       </p>
+      <hr className="smol"/>
       <h2>Nuclear engines - </h2>
       <p>
          - If you equip it with something that makes it useless, then it will go slower and cost MORE fuel, not less.
       </p>
-      <br/>
-      <br/>
+      <hr className="big"/>
       <h2 className="">Stats</h2>
       <ul className="list-disc list-inside">
         <li>Money</li>
