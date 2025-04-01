@@ -4,6 +4,30 @@ import { useRouter, usePathname, useSearchParams, ReadonlyURLSearchParams } from
 export type size = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 export type sizeClass = Record<size, string>;
 
+export type playerData = {
+  name: string,
+  money: number,
+  economy: number,
+  civ: { // civilians
+    ppul: number, // popularity (how much they like you)
+    edu: number, // education
+    qol: number // quality of life
+  },
+  u: { // units
+    name: string, // funnys
+    str: number, // strength
+    mor: number, // morale
+    sup: number, // supplies
+    typ: 'Artillery' | 'Infantry' | 'Cavalry' | 'AMERICAAA' // kind of unit (cant use 'type' cuz its a reserved word :c)
+  }[],
+  ct: { // cities
+    name: string, // funnys
+    fc: number, // fortification class
+    wc: number, // wall condition
+    p: number, // population
+  }[]
+}
+
 export function useWindowSize(delay?: number) { // delay in ms
   const [windowSize, setWindowSize] = useState<{
     width: number,

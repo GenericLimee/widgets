@@ -4,9 +4,9 @@ import { ReactNode } from "react";
 export default function Layout({ children }: { children: ReactNode }) {
   
   return (
-    <div className="absolute top-0 flex flex-col items-center justify-start min-h-screen h-fit w-screen overflow-scroll bg-gradient-to-tr from-amber-900 to-rose-900 bg-auto">
+    <div className="p-10 absolute top-0 flex flex-col items-center justify-start min-h-screen h-fit w-screen overflow-scroll bg-gradient-to-tr from-amber-900 to-rose-900 bg-auto">
       <Nav
-        className="p-5 bg-slate-700 w-full place-self-start"
+        className="p-5 bg-slate-700 w-screen place-self-start -mx-10 -mt-10 mb-10"
         linkClassName="p-3 m-2 bg-slate-800 rounded-full"
         links={[
           {

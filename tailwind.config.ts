@@ -36,14 +36,15 @@ const config: Config = {
         spinOut: {
           '0%': { transform: "translate(0, 0) rotate(0deg)" },
           '100%': { transform: "translate(-100vw, -100vh) rotate(-90deg)" }
-        }
+        },
       },
       animation: {
         'spinny': "spinny 5s cubic-bezier(0.77, 0, 0.175, 1) infinite alternate",
         'spinny-reverse': "spinny 5s cubic-bezier(0.77, 0, 0.175, 1) infinite alternate-reverse",
         'idk': "idk .2s ease-in-out 2 alternate forwards",
         'spin-out': "spinOut 0.9s cubic-bezier(0.64, 0, 0.78, 0) 1 normal forwards",
-        'spin-in': "spinIn 0.9s cubic-bezier(0.64, 0, 0.78, 0) 1 reverse forwards"
+        'spin-in': "spinIn 0.9s cubic-bezier(0.64, 0, 0.78, 0) 1 reverse forwards",
+
       }
     },
   },

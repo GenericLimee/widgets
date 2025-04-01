@@ -12,16 +12,21 @@ export default function Page() {
       <h2>Politics - Ways of rule<br/></h2>
       <ol className="list-inside">
         <li>
-          <b> - Communism:</b> you don&#39;t have to pay your civilians, but you only get 50% of the money. Cv-Qol = 0.2
+          <b> - Communism:</b><br/>
+          - You don&#39;t have to pay your civilians, but you only get 50% of the money. Cv-Qol = 0.2
         </li>
         <li>
-          <b> - Democracy:</b> normal things, start with more educated people
+          <b> - Democracy:</b><br/>
+          - Normal things, start with more educated people
         </li>
         <li>
-          <b> - Fascism:</b> all of the stuff will cost only 50%, but you have to pay your civilians 1.5 times as much and in ⅔ of the time<br/>
+          <b> - Fascism:</b><br/>
+          - Everything will cost only 50%, but you have to pay your civilians 1.5 times as much and in ⅔ of the time<br/>
         </li>
         <li>
-          <b> - Nazism:</b> Facism but money produces + 50% and you have to pay civilians twice as much every turn.
+          <b> - Nazism:</b><br/>
+          - Facism but money produces + 50% and you have to pay civilians twice as much every turn.<br/>
+          - Because of extreme nationalism, units&#39; morale endurance is doubled and strength is increased by 25%
         </li>
       </ol>
       <hr className="smol"/>
@@ -151,15 +156,15 @@ export default function Page() {
       <h2 className="">Stats</h2>
       <ul className="list-disc list-inside">
         <li>Money</li>
+        <li>Economy</li>
         <li>Civilians - Popularity(Cv-Po)</li>
         <li>Civilians - Education(Cv-Ed)</li>
         <li>Civilians - Qol(Cv-Qol)</li>
         <li>Units - Strength(U-Str)</li>
-        <li>Units - Morale(U-Mo)</li>
-        <li>Units - Supplies(U-Su)</li>
+        <li>Units - Morale(U-Mor)</li>
+        <li>Units - Supplies(U-Sup)</li>
         <li>Cities - FortificationClass(Ct-FC)</li>
         <li>Cities - WallHealth(Ct-WH)</li>
-        <li>Cities - GarrisonStrength(Ct-GS)</li>
         <li>Cities - Population(Ct-Pop)</li>
       </ul>
     </div>
