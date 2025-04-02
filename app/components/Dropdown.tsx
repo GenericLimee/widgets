@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import { useState, type ReactNode } from 'react';
 
-export default function Popup({
+export default function Dropdown({
   label,
   cn,
   children

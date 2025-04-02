@@ -1,7 +1,8 @@
 import clsx from 'clsx';
-import { useState, type ReactNode } from 'react';
+import { useState, useContext, type ReactNode, useEffect, useCallback } from 'react';
+import { PopupRequest } from '@/(ActualRoutes)/layout';
 
-export default function Dropdown({
+export default function Popup({
   label,
   labelcn,
   popupcn,
@@ -13,6 +14,7 @@ export default function Dropdown({
   children: ReactNode
 }) {
   const [open, setOpen] = useState<boolean>(false);
+  const requestPopup = useCallback(useContext(PopupRequest), [PopupRequest]);
   return ( // MAKE PARENT RELATIVE AND CHILD ABSOLUTE FOR DROPDONW :DDDDD
     <>
       <div className={clsx("w-full rounded-xl p-5 flex flex-col items-center justify-center text-center", labelcn)}> {/*clsx automatically deals with undefineds :DDDD*/}
@@ -22,7 +24,19 @@ export default function Dropdown({
             xmlns="http://www.w3.org/2000/svg" 
             viewBox="0 0 448 512"
             onClick={() => {
-              setOpen(!open);
+              setOpen(true);
+              requestPopup({
+                cn: popupcn ?? "",
+                children: close => (
+                  <>
+                    {children}
+                    <div 
+                      className="p-3 bg-zinc-900 rounded-xl cursor-pointer text-center self-stretch font-semibold"
+                      onClick={() => { close(); setOpen(false) }}
+                    >Close</div>
+                  </>
+                )
+              });
             }}
           >
             {/*Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.*/}
@@ -31,14 +45,6 @@ export default function Dropdown({
           <p className="font-semibold text-xl mx-5 select-none">{label}</p>
         </div>
       </div>
-      <div className={clsx("z-20 fixed top-1/2 left-1/2 max-w-[calc(100vw-10rem)] max-h-[calc(100vh-10rem)] transition-[opacity,_transform] duration-300 ease-satis -translate-x-1/2", popupcn, open ? "opacity-100 -translate-y-1/2" : "opacity-0 -translate-y-1/3 pointer-events-none")}>
-        {children}
-        <div 
-          className="p-3 bg-zinc-900 rounded-xl cursor-pointer text-center self-stretch font-semibold"
-          onClick={() => { setOpen(false) }}
-        >Close</div>
-      </div>
-      <div className={clsx("absolute w-screen h-screen top-0 left-0 z-10 bg-[url(../images/america.png)] blur-xl contrast-[0.08] bg-no-repeat bg-cover transition-opacity duration-500", open ? "opacity-50 pointer-events-auto" : "opacity-0 pointer-events-none")}/>
     </>
   );
 }

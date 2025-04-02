@@ -37,6 +37,10 @@ const config: Config = {
           '0%': { transform: "translate(0, 0) rotate(0deg)" },
           '100%': { transform: "translate(-100vw, -100vh) rotate(-90deg)" }
         },
+        phaseIn: {
+          '0%': { transform: "translate(0, -10rem) scale(0.9)", opacity: "0" },
+          '100%': { transform: "translate(0, 0) scale(1)", opacity: "1" }
+        }
       },
       animation: {
         'spinny': "spinny 5s cubic-bezier(0.77, 0, 0.175, 1) infinite alternate",
@@ -44,7 +48,7 @@ const config: Config = {
         'idk': "idk .2s ease-in-out 2 alternate forwards",
         'spin-out': "spinOut 0.9s cubic-bezier(0.64, 0, 0.78, 0) 1 normal forwards",
         'spin-in': "spinIn 0.9s cubic-bezier(0.64, 0, 0.78, 0) 1 reverse forwards",
-
+        'phase-in': "phaseIn 300ms ease 1 normal forwards"
       }
     },
   },

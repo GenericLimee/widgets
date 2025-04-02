@@ -1,4 +1,4 @@
-import { useEffect, useState, useCallback } from 'react';
+import { useEffect, useState, useCallback, createContext } from 'react';
 import { useRouter, usePathname, useSearchParams, ReadonlyURLSearchParams } from 'next/navigation';
 
 export type size = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
@@ -8,6 +8,7 @@ export type playerData = {
   name: string,
   money: number,
   economy: number,
+  pop: number,
   civ: { // civilians
     ppul: number, // popularity (how much they like you)
     edu: number, // education
@@ -24,7 +25,7 @@ export type playerData = {
     name: string, // funnys
     fc: number, // fortification class
     wc: number, // wall condition
-    p: number, // population
+    pop: number, // population
   }[]
 }
 
