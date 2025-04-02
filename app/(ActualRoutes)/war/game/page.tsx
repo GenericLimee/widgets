@@ -1,6 +1,6 @@
 "use client"
 
-import { Fragment, useState } from 'react';
+import { useState } from 'react';
 import { type playerData } from '@/customStuff';
 import Popup from '@/components/Popup';
 
@@ -40,10 +40,53 @@ export default function Page() {
         {
           name: "Unit of greatness II",
           str: 200,
+          mor: 700,
+          sup: 100,
+          typ: 'Infantry'
+        },
+        {
+          name: "Unit of greatness II",
+          str: 200,
+          mor: 500,
+          sup: 100,
+          typ: 'Infantry'
+        },
+        {
+          name: "Unit of greatness II",
+          str: 200,
+          mor: 700,
+          sup: 100,
+          typ: 'Infantry'
+        },
+        {
+          name: "Unit of greatness II",
+          str: 200,
+          mor: 500,
+          sup: 100,
+          typ: 'Infantry'
+        },
+        {
+          name: "Unit of greatness II",
+          str: 200,
+          mor: 700,
+          sup: 100,
+          typ: 'Infantry'
+        },
+        {
+          name: "Unit of greatness II",
+          str: 200,
+          mor: 500,
+          sup: 100,
+          typ: 'Infantry'
+        },
+        {
+          name: "Unit of greatness II",
+          str: 200,
           mor: 500,
           sup: 100,
           typ: 'Infantry'
         }
+        
       ],
       ct: [
         {
@@ -78,32 +121,30 @@ export default function Page() {
               <h2 className="font-medium">Education - {data.civ.edu}</h2>
             </div>
             <hr className="w-40 h-1 col-span-2 justify-self-center m-0" />
-            <Popup labelcn="bg-emerald-900" popupcn="bg-amber-900 rounded-xl" label="Units">
+            <Popup labelcn="bg-emerald-900" popupcn="bg-amber-900 rounded-xl flex gap-4 flex-wrap flex-col content-center p-5" label="Units">
               {data.u?.map((unit, num) => {
                 return (
-                  <Fragment key={num + unit.mor * 10}>
+                  <div key={num + unit.mor * 10} className="border-4 border-slate-950 p-2 rounded-xl">
                     <p><b>Name -</b> {unit.name}</p>
                     <p><b>Strength -</b> {unit.str}</p>
                     <p><b>Morale -</b> {unit.mor}</p>
                     <p><b>Supplies -</b> {unit.sup}</p>
                     <p><b>Type -</b> {unit.typ}</p>
-                    {(num !== (data.u?.length ?? 0) - 1) && <hr className="h-[3px] my-3 w-3/4 self-center"/>}
-                  </Fragment>
+                  </div>
                 );
-              }) ?? <p>None.</p>}
+              }) ?? <p className="text-3xl font-semibold">None.</p>}
             </Popup>
-            <Popup labelcn="bg-slate-800" popupcn="bg-amber-900 rounded-xl" label="Cities">
+            <Popup labelcn="bg-slate-800" popupcn="bg-amber-900 rounded-xl flex gap-4 flex-wrap flex-col content-center p-5" label="Cities">
               {data.ct?.map((city, num) => {
                 return (
-                  <Fragment key={num + city.p * 10}>
+                  <div key={num + city.p * 10} className="border-4 border-slate-950 p-2 rounded-xl">
                     <p><b>Name -</b> {city.name}</p>
                     <p><b>Population -</b> {city.p}</p>
                     <p><b>Wall Condition -</b> {city.wc}</p>
                     <p><b>Fortification Class -</b> {city.fc}</p>
-                    {(num !== (data.ct?.length ?? 0) - 1) && <hr className="h-[3px] my-3 self-start"/>}
-                  </Fragment>
+                  </div>
                 );
-              }) ?? <p>None.</p>}
+              }) ?? <p className="text-3xl font-semibold">None.</p>}
             </Popup>
           </div>
         );
