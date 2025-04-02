@@ -1,8 +1,14 @@
-import { useEffect, useState, useCallback } from 'react';
+import { useEffect, useState, useCallback, createContext, ReactNode } from 'react';
 import { useRouter, usePathname, useSearchParams, ReadonlyURLSearchParams } from 'next/navigation';
 
 export type size = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 export type sizeClass = Record<size, string>;
+export type PopupReq = {
+  children: (a: () => void) => ReactNode, 
+  cn: string,
+}
+
+export const PopupRequest = createContext<(a: PopupReq) => void>(() => {});
 
 export type playerData = {
   name: string,

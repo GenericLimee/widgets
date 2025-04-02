@@ -1,15 +1,9 @@
 'use client'
 
 import clsx from 'clsx';
-import { ReactNode, useState, createContext } from 'react';
-import { useMobileDetect } from '@/customStuff';
+import { ReactNode, useState } from 'react';
+import { useMobileDetect, type PopupReq, PopupRequest } from '@/customStuff';
 import Settings from '@/components/Settings';
-
-type PopupReq = {
-  children: (a: () => void) => ReactNode, 
-  cn: string,
-} | undefined
-export const PopupRequest = createContext<(a: PopupReq) => void>(() => {});
 
 export default function Layout({ children }: { children: ReactNode }) {
   const isMobile = useMobileDetect().isMobile();
