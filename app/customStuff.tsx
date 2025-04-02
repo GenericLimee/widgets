@@ -13,14 +13,14 @@ export type playerData = {
     edu: number, // education
     qol: number // quality of life
   },
-  u: { // units
+  u?: { // units
     name: string, // funnys
     str: number, // strength
     mor: number, // morale
     sup: number, // supplies
     typ: 'Artillery' | 'Infantry' | 'Cavalry' | 'AMERICAAA' // kind of unit (cant use 'type' cuz its a reserved word :c)
   }[],
-  ct: { // cities
+  ct?: { // cities
     name: string, // funnys
     fc: number, // fortification class
     wc: number, // wall condition
