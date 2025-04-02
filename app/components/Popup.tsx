@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import { useState, useContext, type ReactNode, useEffect, useCallback } from 'react';
+import { useState, useContext, type ReactNode } from 'react';
 import { PopupRequest } from '@/(ActualRoutes)/layout';
 
 export default function Popup({
@@ -14,7 +14,7 @@ export default function Popup({
   children: ReactNode
 }) {
   const [open, setOpen] = useState<boolean>(false);
-  const requestPopup = useCallback(useContext(PopupRequest), [PopupRequest]);
+  const requestPopup = useContext(PopupRequest);
   return ( // MAKE PARENT RELATIVE AND CHILD ABSOLUTE FOR DROPDONW :DDDDD
     <>
       <div className={clsx("w-full rounded-xl p-5 flex flex-col items-center justify-center text-center", labelcn)}> {/*clsx automatically deals with undefineds :DDDD*/}

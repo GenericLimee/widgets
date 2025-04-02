@@ -1,5 +1,4 @@
 import { playerData } from '@/customStuff';
-import { useState } from 'react';
 import Popup from './Popup';
 import clsx from 'clsx';
 

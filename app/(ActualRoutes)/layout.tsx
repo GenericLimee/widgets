@@ -9,7 +9,7 @@ type PopupReq = {
   children: (a: () => void) => ReactNode, 
   cn: string,
 } | undefined
-export const PopupRequest = createContext((a: PopupReq) => {});
+export const PopupRequest = createContext<(a: PopupReq) => void>(() => {});
 
 export default function Layout({ children }: { children: ReactNode }) {
   const isMobile = useMobileDetect().isMobile();

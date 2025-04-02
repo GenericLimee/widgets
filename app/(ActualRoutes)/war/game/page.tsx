@@ -1,9 +1,7 @@
 "use client"
 
-import clsx from 'clsx';
 import { useState } from 'react';
 import { type playerData } from '@/customStuff';
-import Popup from '@/components/Popup';
 import PlayerCard from '@/components/PlayerCard';
 
 export default function Page() {
@@ -126,7 +124,6 @@ export default function Page() {
                 money: 10000,
                 economy: 500,
                 pop: 10000,
-                new: true,
                 civ: {
                   ppul: 500,
                   edu: 300,
