@@ -40,6 +40,10 @@ const config: Config = {
         phaseIn: {
           '0%': { transform: "translate(0, -10rem) scale(0.9)", opacity: "0" },
           '100%': { transform: "translate(0, 0) scale(1)", opacity: "1" }
+        },
+        wee: {
+          '0%': { transform: "rotate(0deg)"},
+          '100%': { transform: "rotate(360deg)"}
         }
       },
       animation: {
@@ -48,6 +52,7 @@ const config: Config = {
         'idk': "idk .2s ease-in-out 2 alternate forwards",
         'spin-out': "spinOut 0.9s cubic-bezier(0.64, 0, 0.78, 0) 1 normal forwards",
         'spin-in': "spinIn 0.9s cubic-bezier(0.64, 0, 0.78, 0) 1 reverse forwards",
+        'wee': "wee 1s ease-out 1 normal forwards",
         'phase-in': "phaseIn 300ms ease 1 normal forwards"
       }
     },

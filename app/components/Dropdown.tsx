@@ -4,16 +4,18 @@ import { useState, type ReactNode } from 'react';
 export default function Dropdown({
   label,
   cn,
+  outercn,
   children
 }: {
   label: string,
-  cn: string,
+  cn?: string,
+  outercn?: string,
   children: ReactNode
 }) {
   const [open, setOpen] = useState<boolean>(false);
   return ( // MAKE PARENT RELATIVE AND CHILD ABSOLUTE FOR DROPDONW :DDDDD
-    <div className="relative">
-      <div className={cn + " z-10"}>
+    <div className={clsx("relative", outercn)} onMouseLeave={() => { setOpen(false) }}>
+      <div className={clsx(cn ?? "")}>
         <div className="flex items-center justify-between w-full">
           <svg 
             className={clsx("h-7 mx-5 cursor-pointer transition-transform duration-300 ease-satis ", open ? "-rotate-180" : "-rotate-90")}
@@ -29,7 +31,7 @@ export default function Dropdown({
           <p className="font-semibold text-xl mx-5 select-none">{label}</p>
         </div>
       </div>
-      <div className={clsx("absolute max-h-80 top-full p-5 pt-6 z-0 transition-[opacity,_transform] duration-300 ease-satis", cn, open ? "opacity-100 -translate-y-6" : "opacity-0 -translate-y-12 pointer-events-none")}>
+      <div className={clsx("z-30 absolute w-full max-h-80 top-full transition-[opacity,_transform] duration-300 ease-satis", cn, open ? "opacity-100 -translate-y-6" : "opacity-0 -translate-y-12 pointer-events-none")}>
         <div className="overflow-scroll">{children}</div>
       </div>
     </div>

@@ -9,13 +9,14 @@ export default function Layout({ children }: { children: ReactNode }) {
   const isMobile = useMobileDetect().isMobile();
 
   const [currentPopup, setCurrent] = useState<PopupReq>();
+  
   const [show, setShow] = useState<boolean>(false);
-  const handlePopupReq = (req: PopupReq) => {
-    if (currentPopup) return undefined;
-    else {
+  const handlePopupReq = (req: PopupReq): void => {
+    if (currentPopup) {
+      console.log("Tried popup and oofed");
+    } else {
       setCurrent(req);
       setShow(true);
-      return req;
     }
   }
 
@@ -26,7 +27,7 @@ export default function Layout({ children }: { children: ReactNode }) {
       </div>
     </div>
   ) : (
-    <PopupRequest.Provider value={handlePopupReq}>
+    <PopupRequest.Provider value={[handlePopupReq, () => { setShow(false) }]}>
         {children}
         <Settings />
         <div className={clsx( // popup blur thing
@@ -46,7 +47,7 @@ export default function Layout({ children }: { children: ReactNode }) {
           )}
           onTransitionEnd={() => { if (!show) setCurrent(undefined) }}
         >
-          {currentPopup?.children(() => { setShow(false) })}
+          {currentPopup?.children}
         </div>
     </PopupRequest.Provider>
   );

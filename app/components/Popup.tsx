@@ -14,25 +14,27 @@ export default function Popup({
   children: ReactNode
 }) {
   const [open, setOpen] = useState<boolean>(false);
-  const requestPopup = useContext(PopupRequest);
-  return ( // MAKE PARENT RELATIVE AND CHILD ABSOLUTE FOR DROPDONW :DDDDD
+  const [requestPopup, close] = useContext(PopupRequest);
+
+  return (
     <>
-      <div className={clsx("w-full rounded-xl p-5 flex flex-col items-center justify-center text-center", labelcn)}> {/*clsx automatically deals with undefineds :DDDD*/}
+      <div className={clsx("w-full rounded-xl flex flex-col items-center justify-center text-center", labelcn)}> {/*clsx automatically deals with undefineds :DDDD*/}
         <div className="flex items-center justify-between w-full">
           <svg 
-            className={clsx("h-7 mx-5 cursor-pointer transition-transform duration-300 ease-satis ", open ? "-rotate-180" : "-rotate-90")}
+            className={clsx("h-7 mx-5 cursor-pointer", open ? "animate-wee" : "animate-none")}
             xmlns="http://www.w3.org/2000/svg" 
             viewBox="0 0 448 512"
+            onAnimationEnd={() => { setOpen(false) }}
             onClick={() => {
               setOpen(true);
               requestPopup({
                 cn: popupcn ?? "",
-                children: close => (
+                children: (
                   <>
                     {children}
                     <div 
                       className="p-3 bg-zinc-900 rounded-xl cursor-pointer text-center self-stretch font-semibold"
-                      onClick={() => { close(); setOpen(false) }}
+                      onClick={close}
                     >Close</div>
                   </>
                 )

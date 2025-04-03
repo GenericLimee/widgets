@@ -86,8 +86,14 @@ export default function Page() {
           mor: 500,
           sup: 100,
           typ: 'Infantry'
+        },
+        {
+          name: "Unit of greatness II",
+          str: 200,
+          mor: 500,
+          sup: 100,
+          typ: 'Infantry'
         }
-        
       ],
       ct: [
         {
@@ -108,7 +114,16 @@ export default function Page() {
 
   return (
     <div className="PLAYERS_CTNR w-full grid grid-cols-1 lg:grid-cols-2 2xl:grid-cols-3 gap-10">
-      {players.map((data, num) => <PlayerCard data={data} key={num + data.pop}/> )}
+      {players.map((data, num) => <PlayerCard 
+        data={data} 
+        setData={data => { 
+          const newState = [...players];
+          newState[num] = data;
+          setPlayers(newState);
+          console.log(newState);
+        }} 
+        key={num + data.pop}
+      />)}
       <div className="ADD_PLAYER px-10 py-5 bg-slate-950 opacity-90 rounded-xl flex items-center justify-center">
         <svg 
           xmlns="http://www.w3.org/2000/svg" 
@@ -129,14 +144,8 @@ export default function Page() {
                   edu: 300,
                   qol: 500
                 },
-                ct: [
-                  {
-                    pop: 1000,
-                    fc: 1,
-                    wc: 1000,
-                    name: "ahYEs"
-                  }
-                ]
+                u: [],
+                ct: []
               }
             ])
           }}

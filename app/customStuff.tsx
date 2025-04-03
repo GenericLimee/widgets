@@ -4,11 +4,11 @@ import { useRouter, usePathname, useSearchParams, ReadonlyURLSearchParams } from
 export type size = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 export type sizeClass = Record<size, string>;
 export type PopupReq = {
-  children: (a: () => void) => ReactNode, 
+  children: ReactNode, 
   cn: string,
 }
 
-export const PopupRequest = createContext<(a: PopupReq) => void>(() => {});
+export const PopupRequest = createContext<[(a: PopupReq) => void, () => void]>([() => {}, () => {}]);
 
 export type playerData = {
   name: string,
@@ -20,19 +20,29 @@ export type playerData = {
     edu: number, // education
     qol: number // quality of life
   },
-  u?: { // units
+  u: { // units
     name: string, // funnys
     str: number, // strength
     mor: number, // morale
     sup: number, // supplies
     typ: 'Artillery' | 'Infantry' | 'Cavalry' | 'AMERICAAA' // kind of unit (cant use 'type' cuz its a reserved word :c)
   }[],
-  ct?: { // cities
+  ct: { // cities
     name: string, // funnys
     fc: number, // fortification class
     wc: number, // wall condition
     pop: number, // population
   }[]
+}
+export type unitCreation = {
+  name: string,
+  typ: 'Artillery' | 'Infantry' | 'Cavalry' | 'AMERICAAA'
+}
+export type cityCreation = {
+  name: string,
+  fc: 1,
+  wc: 1000,
+  pop: 1000,
 }
 
 export function useWindowSize(delay?: number) { // delay in ms
