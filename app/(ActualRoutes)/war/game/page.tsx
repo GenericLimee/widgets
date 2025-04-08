@@ -22,77 +22,77 @@ export default function Page() {
           str: 20,
           mor: 600,
           sup: 100,
-          typ: 'Infantry'
+          type: 'Infantry'
         },
         {
           name: "Unit of greatness II",
           str: 200,
           mor: 700,
           sup: 100,
-          typ: 'Infantry'
+          type: 'Infantry'
         },
         {
           name: "Unit of greatness II",
           str: 200,
           mor: 500,
           sup: 100,
-          typ: 'Infantry'
+          type: 'Infantry'
         },
         {
           name: "Unit of greatness II",
           str: 200,
           mor: 700,
           sup: 100,
-          typ: 'Infantry'
+          type: 'Infantry'
         },
         {
           name: "Unit of greatness II",
           str: 200,
           mor: 500,
           sup: 100,
-          typ: 'Infantry'
+          type: 'Infantry'
         },
         {
           name: "Unit of greatness II",
           str: 200,
           mor: 700,
           sup: 100,
-          typ: 'Infantry'
+          type: 'Infantry'
         },
         {
           name: "Unit of greatness II",
           str: 200,
           mor: 500,
           sup: 100,
-          typ: 'Infantry'
+          type: 'Infantry'
         },
         {
           name: "Unit of greatness II",
           str: 200,
           mor: 700,
           sup: 100,
-          typ: 'Infantry'
+          type: 'Infantry'
         },
         {
           name: "Unit of greatness II",
           str: 200,
           mor: 500,
           sup: 100,
-          typ: 'Infantry'
+          type: 'Infantry'
         },
         {
           name: "Unit of greatness II",
           str: 200,
           mor: 500,
           sup: 100,
-          typ: 'Infantry'
+          type: 'Infantry'
         },
         {
           name: "Unit of greatness II",
           str: 200,
           mor: 500,
           sup: 100,
-          typ: 'Infantry'
+          type: 'Infantry'
         }
       ],
       ct: [
