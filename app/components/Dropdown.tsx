@@ -5,12 +5,18 @@ export default function Dropdown({
   label,
   cn,
   outercn,
-  children
+  innercn,
+  children,
+  closeOnClick = false,
+  choose = false,
 }: {
-  label: string,
-  cn?: string,
-  outercn?: string,
-  children: ReactNode
+  label: string;
+  cn?: string;
+  outercn?: string;
+  innercn?: string;
+  choose?: boolean;
+  closeOnClick?: boolean;
+  children: ReactNode;
 }) {
   const [open, setOpen] = useState<boolean>(false);
   return ( // MAKE PARENT RELATIVE AND CHILD ABSOLUTE FOR DROPDONW :DDDDD
@@ -18,7 +24,7 @@ export default function Dropdown({
       <div className={clsx(cn ?? "")}>
         <div className="flex items-center justify-between w-full">
           <svg 
-            className={clsx("h-7 mx-5 cursor-pointer transition-transform duration-300 ease-satis ", open ? "-rotate-180" : "-rotate-90")}
+            className={clsx("mx-5 cursor-pointer transition-transform duration-300 ease-satis ", choose ? "h-5" : 'h-7', open ? "-rotate-180" : "-rotate-90")}
             xmlns="http://www.w3.org/2000/svg" 
             viewBox="0 0 448 512"
             onClick={() => {
@@ -31,8 +37,8 @@ export default function Dropdown({
           <p className="font-semibold text-xl mx-5 select-none">{label}</p>
         </div>
       </div>
-      <div className={clsx("z-30 absolute w-full max-h-80 top-full transition-[opacity,_transform] duration-300 ease-satis", cn, open ? "opacity-100 -translate-y-6" : "opacity-0 -translate-y-12 pointer-events-none")}>
-        <div className="overflow-scroll">{children}</div>
+      <div onClick={closeOnClick ? () => { setOpen(false) } : () => {}} className={clsx("z-30 absolute w-full max-h-80 top-full transition-[opacity,_transform] duration-300 ease-satis", cn, open ? ("opacity-100 " + choose ? "-translate-y-3 " : "-translate-y-6 ") : "opacity-0 -translate-y-12 pointer-events-none")}>
+        <div className={clsx("overflow-scroll", innercn)}>{children}</div>
       </div>
     </div>
   );

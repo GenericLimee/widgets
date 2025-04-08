@@ -10,7 +10,7 @@ export type PopupReq = {
 
 export const PopupRequest = createContext<[(a: PopupReq) => void, () => void]>([() => {}, () => {}]);
 
-export type playerData = {
+export interface playerData {
   name: string,
   money: number,
   economy: number,
@@ -25,7 +25,7 @@ export type playerData = {
     str: number, // strength
     mor: number, // morale
     sup: number, // supplies
-    typ: 'Artillery' | 'Infantry' | 'Cavalry' | 'AMERICAAA' // kind of unit (cant use 'type' cuz its a reserved word :c)
+    type: 'Artillery' | 'Infantry' | 'Cavalry' | 'AMERICAAA'
   }[],
   ct: { // cities
     name: string, // funnys

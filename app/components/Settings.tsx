@@ -43,12 +43,12 @@ export default function Settings() {
         <Checkbox
           text="Animations"
           onValueChange={() => {}}
-          defaultSet={true}
+          defaultTrue
         />
         <Checkbox
           text="Gradients"
           onValueChange={() => {}}
-          defaultSet={true}
+          defaultTrue
         />
         <div 
           className="border-slate-950 border-4 p-3 w-fit bg-gradient-to-bl from-slate-800 to-emerald-800 rounded-xl cursor-pointer self-end text-center"

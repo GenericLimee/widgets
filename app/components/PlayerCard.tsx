@@ -34,7 +34,7 @@ export default function PlayerCard({ data, setData }: { data: playerData, setDat
               <p><b>Strength -</b> {unit.str}</p>
               <p><b>Morale -</b> {unit.mor}</p>
               <p><b>Supplies -</b> {unit.sup}</p>
-              <p><b>Type -</b> {unit.typ}</p>
+              <p><b>Type -</b> {unit.type}</p>
             </div>
           );
         }) : <p className="text-3xl font-semibold z-">None.</p>}
@@ -64,17 +64,27 @@ export default function PlayerCard({ data, setData }: { data: playerData, setDat
                 str: 100,
                 mor: 1000,
                 sup: 500,
-                typ: 'Artillery'
+                type: form.unittype
               });
               setData(newData);
               close();
+              console.log('form:', typeof form.unittype);
             }}
             fields={[
               {
-                label: "Unit Name",
+                label: "Name",
                 name: "unitname",
                 type: "text",
-                props: {}
+              },
+              {
+                label: "Type",
+                name: "unittype",
+                type: "dropdown",
+                options: [
+                  'Infantry',
+                  'Artillery',
+                  'Cavalry',
+                ]
               },
               {
                 name: "asdf",

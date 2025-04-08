@@ -42,8 +42,8 @@ export default function Layout({ children }: { children: ReactNode }) {
             transition-[opacity,_transform] duration-300 ease-satis -translate-x-1/2", 
             currentPopup?.cn, 
             show 
-              ? "opacity-100 -translate-y-1/2 scale-x-100 pointer-events-auto" 
-              : "opacity-0 -translate-y-1/3 scale-x-50 pointer-events-none"
+              ? "opacity-100 -translate-y-1/2 skew-x-0 skew-y-0 pointer-events-auto" 
+              : "opacity-0 -translate-y-1/3 skew-x-[60deg] skew-y-[60deg] pointer-events-none"
           )}
           onTransitionEnd={() => { if (!show) setCurrent(undefined) }}
         >

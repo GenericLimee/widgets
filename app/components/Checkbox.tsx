@@ -5,14 +5,14 @@ export default function Checkbox({
   text, 
   size,
   onValueChange,
-  defaultSet
+  defaultTrue = false
 }: {
   text: string,
   size?: size,
   onValueChange: (a: boolean) => void
-  defaultSet?: boolean
+  defaultTrue?: boolean
 }) {
-  const [value, setValue] = useState<boolean>(defaultSet ?? false);
+  const [value, setValue] = useState<boolean>(defaultTrue);
   const sizes: sizeClass = {
     xs: "p-1 text-md",
     sm: "p-2 text-xl",
