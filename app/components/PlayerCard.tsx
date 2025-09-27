@@ -1,12 +1,14 @@
-import { playerData, PopupRequest } from '@/customStuff';
+import { ntrn, playerData, PopupRequest, tfn, tnwpf } from '@/customStuff';
 import Popup from './Popup';
 import clsx from 'clsx';
 import Dropdown from './Dropdown';
 import Form from './Form';
 import { useContext } from 'react';
+import Button from './Button';
 
 export default function PlayerCard({ data, setData }: { data: playerData, setData: (a: playerData) => void }) {
   const close = useContext(PopupRequest)[1];
+
   return (
     <div 
       className={clsx(
@@ -15,15 +17,17 @@ export default function PlayerCard({ data, setData }: { data: playerData, setDat
     >
       <div className="col-span-2"><h1 className="font-medium">{data.name}</h1></div>
       <hr className="w-40 h-1 col-span-2 justify-self-center m-0" />
+      <h1 className="col-span-2 font-medium bg-clip-text bg-gradient-to-tr from-emerald-400 to-emerald-800 [-webkit-text-fill-color:transparent]">CLASS - <span className="font-mer">{ntrn(data.cls)}</span></h1>
       <div>
-        <h2 className="font-medium">Marks - {data.money}</h2>
-        <h2 className="font-medium">Economy - {data.economy}</h2>
-        <h2 className="font-medium">Population - {data.pop}</h2>
+        <h2 className="font-medium">MRK - {tnwpf(data.mrk)}</h2>
+        <h2 className="font-medium">INC - {tnwpf(data.inc)} / TURN</h2>
+        <h2 className="font-medium">ECN - {data.ecn}</h2>
+        <h2 className="font-medium">PLR - {data.plr}</h2>
       </div>
       <div>
         <h2 className="font-medium">QoL - {data.civ.qol}</h2>
-        <h2 className="font-medium">Popularity - {data.civ.ppul}</h2>
-        <h2 className="font-medium">Education - {data.civ.edu}</h2>
+        <h2 className="font-medium">EDU - {data.civ.edu}</h2>
+        <h2 className="font-medium">PPL - {tnwpf(data.civ.ppl)}</h2>
       </div>
       <hr className="w-40 h-1 col-span-2 justify-self-center m-0" />
       <Popup labelcn="bg-emerald-900 p-5" popupcn="overflow-x-scroll from-amber-900 to-orange-900 bg-gradient-to-tr border-[3px] border-zinc-950 rounded-xl flex gap-4 flex-wrap flex-col p-5" label="Units">
@@ -51,7 +55,7 @@ export default function PlayerCard({ data, setData }: { data: playerData, setDat
           );
         }) : <p className="text-3xl font-semibold">None.</p>}
       </Popup>
-      <Dropdown label="New Events" cn="rounded-xl bg-zinc-800 p-5 shadow-xl" outercn="col-span-2 justify-self-stretch">
+      <Dropdown label="Actions" cn="rounded-xl bg-zinc-800 p-5 shadow-xl" outercn="col-span-2 justify-self-stretch">
         <Popup label="New Unit" popupcn="from-zinc-950 to-neutral-900 bg-gradient-to-tr border-[3px] border-zinc-950 rounded-xl flex gap-4 flex-wrap flex-col content-center p-5">
           <Form 
             groupcn="bg-slate-800 rounded-xl flex flex-row items-center justify-start gap-2"
@@ -130,6 +134,19 @@ export default function PlayerCard({ data, setData }: { data: playerData, setDat
               }
             ]}
           />
+        </Popup>
+        <Popup label="Advance Class" labelcn="mt-3" popupcn="from-zinc-950 to-neutral-900 bg-gradient-to-tr border-[3px] border-zinc-950 rounded-xl flex gap-4 flex-wrap flex-col content-center p-5">
+          <div className="p-3 rounded-xl bg-gradient-to-tr from-emerald-800 to-emerald-500 gap-3 flex flex-col">
+            <h2>Advancing class level requres _____.</h2>
+            <Button
+              cn="bg-black border-emerald-400 p-3 rounded-xl text-center font-bold text-xl select-none"
+              text="Confirm (HOLD)"
+              onHold={() => { 
+                setData({...data, cls: data.cls + 1});
+                close();
+              }}
+            />
+          </div>
         </Popup>
       </Dropdown>
     </div>

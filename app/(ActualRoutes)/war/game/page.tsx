@@ -8,11 +8,13 @@ export default function Page() {
   const [players, setPlayers] = useState<playerData[]>([
     {
       name: "Johnny",
-      money: 10000,
-      economy: 500,
-      pop: 10000,
+      mrk: 10000,
+      ecn: 500,
+      inc: 999999,
+      plr: 600,
+      cls: 1,
       civ: {
-        ppul: 500,
+        ppl: 500,
         edu: 300,
         qol: 500
       },
@@ -122,7 +124,7 @@ export default function Page() {
           setPlayers(newState);
           console.log(newState);
         }} 
-        key={num + data.pop}
+        key={num + data.civ.ppl}
       />)}
       <div className="ADD_PLAYER px-10 py-5 bg-slate-950 opacity-90 rounded-xl flex items-center justify-center">
         <svg 
@@ -136,11 +138,13 @@ export default function Page() {
               ...players,
               {
                 name: (name === "") ? "You serve ZERO purpose in this wourld. You should go FOLD yourself in half. NOW" : name,
-                money: 10000,
-                economy: 500,
-                pop: 10000,
+                mrk: 10000,
+                ecn: 500,
+                inc: 0,
+                cls: 1,
+                plr: 500,
                 civ: {
-                  ppul: 500,
+                  ppl: 500,
                   edu: 300,
                   qol: 500
                 },

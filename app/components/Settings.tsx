@@ -13,7 +13,7 @@ export default function Settings() {
   return (
     <div 
       className={
-        "fixed transition-all duration-500 ease-satis select-none border-stone-950 " + 
+        "fixed transition-all duration-500 ease-in-out select-none border-stone-950 " + 
         ( open 
           ? "rounded-3xl h-3/4 w-3/4 p-10 bottom-1/2 right-1/2 translate-x-1/2 translate-y-1/2 bg-slate-800 border-4" 
           : "rounded-full h-12 w-12 bottom-4 right-4 cursor-pointer bg-slate-700 p-10"

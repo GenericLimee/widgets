@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import Dropdown from './Dropdown';
 import clsx from 'clsx';
-// TODO: ADD TYPE PARAMS TO COMPONENT
+
 export default function Form({
   fields,
   title,
@@ -17,20 +17,20 @@ export default function Form({
   groupcn?: string,
   formcn?: string,
   fields: ({
-    props?: { [prop: string]: string }
-    name: string,
+    props?: { [prop: string]: string };
+    name: string;
   } & ({
-    type: 'text' | 'range'
-    label?: string,
+    type: 'text' | 'range';
+    label?: string;
   } | {
-    type: 'dropdown'
-    label?: string,
-    options: string[]
+    type: 'dropdown';
+    label?: string;
+    options: string[];
   } | {
-    type: 'submit'
-  }))[]
+    type: 'submit';
+  }))[];
   // eslint-disable-next-line
-  onSubmit: (s: Record<string, any>) => void
+  onSubmit: (s: any) => void;
 }) {
   // eslint-disable-next-line
   const [state, setState] = useState<Record<string, any>>(() => {

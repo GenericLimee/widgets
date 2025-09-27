@@ -8,10 +8,10 @@ export default function Popup({
   popupcn,
   children
 }: {
-  label: string,
-  labelcn?: string,
-  popupcn?: string,
-  children: ReactNode
+  label: string;
+  labelcn?: string;
+  popupcn?: string;
+  children: ReactNode;
 }) {
   const [open, setOpen] = useState<boolean>(false);
   const [requestPopup, close] = useContext(PopupRequest);
